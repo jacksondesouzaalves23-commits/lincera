@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lincera Soluções Digitais | Sites, atendimento no WhatsApp e tráfego pago</title>
+<meta name="description" content="Sites, atendimento automático no WhatsApp, tráfego pago e automações sob medida para a sua empresa vender mais.">
+<meta name="theme-color" content="#060d1a">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Lincera Soluções Digitais">
+<meta property="og:description" content="Seu negócio vendendo mais no digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  /* Layout: palco claro com letras 3D caindo, depois site escuro em grade editorial */
+  --stage: #e8e5de;
+  --stage-ink: #cfcbc2;
+  --bg: #070b16;
+  --panel: #0d1424;
+  --line: #1b2640;
+  --ink: #f2efe9;
+  --mute: #9aa8c4;
+  --accent: #ff8a1f; --blue: #3f8cff;
+  --display: "Unbounded", "Arial Black", sans-serif;
+  --body: "Instrument Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Abertura 3D cinematográfica ---------- */
+.stage { position: relative; background: #0c1426; overflow: hidden; height: min(84vh, 720px); min-height: 460px; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.stage .bar { position: absolute; left: 0; right: 0; height: 6.5%; background: #000; z-index: 2; }
+.stage .bar.top { top: 0; } .stage .bar.bot { bottom: 0; }
+.vignette { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 30%, rgba(0,0,0,.75) 100%), linear-gradient(180deg, rgba(20,70,200,.25), transparent 45%, rgba(255,110,20,.12)); mix-blend-mode: normal; }
+.grain { position: absolute; inset: -50%; z-index: 1; pointer-events: none; opacity: .16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");
+  animation: grain .6s steps(4) infinite; }
+@keyframes grain { 0% { transform: translate(0,0); } 25% { transform: translate(-3%,2%); } 50% { transform: translate(2%,-3%); } 75% { transform: translate(-2%,-2%); } 100% { transform: translate(3%,3%); } }
+.tag { position: absolute; z-index: 3; left: 0; right: 0; bottom: 11%; text-align: center; opacity: 0; pointer-events: none; padding: 0 16px;
+  font-size: .85rem; letter-spacing: .42em; text-transform: uppercase; color: #f2efe9; text-shadow: 0 2px 18px rgba(0,0,0,.7); }
+.tag b { color: var(--accent); font-weight: 600; }
+.lynx { position: absolute; z-index: 3; left: 50%; top: 9%; height: 25%; transform: translateX(-50%) scale(.85); opacity: 0; pointer-events: none;
+  filter: drop-shadow(0 0 28px rgba(255,138,31,.55)) drop-shadow(0 0 60px rgba(63,140,255,.25)); }
+.lynx img { height: 100%; width: auto; display: block; }
+.logo img { height: 26px; width: auto; vertical-align: -6px; margin-right: 8px; }
+.replay { position: absolute; top: calc(6.5% + 12px); right: 16px; z-index: 4; background: rgba(23,24,29,.85); color: #f2efe9; border: 0; border-radius: 99px; padding: 9px 16px; font: 600 .8rem var(--body); cursor: pointer; }
+.replay:hover { background: var(--accent); color: #111; }
+.fb { display: none; position: absolute; inset: 0; z-index: 2; place-items: center; font-family: var(--display); font-weight: 900; font-size: clamp(2.6rem, 12vw, 7rem); color: #fff; background: #0a0c12; }
+.stage.nogl .fb { display: grid; }
+
+/* ---------- Site ---------- */
+nav { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px clamp(16px, 5vw, 56px); background: rgba(7,11,22,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 900; letter-spacing: .02em; font-size: 1rem; text-decoration: none; }
+.logo img { height: 30px; width: auto; }
+.logo b { color: var(--accent); }
+.menu { display: flex; gap: 26px; }
+.menu a { color: var(--mute); text-decoration: none; font-size: .92rem; }
+.menu a:hover { color: var(--ink); }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; padding: 13px 22px; border-radius: 99px; border: 1px solid var(--line); }
+.btn.main { background: var(--accent); color: #14100a; border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); }
+.btn.main:hover { filter: brightness(1.08); }
+nav .btn { padding: 9px 18px; font-size: .88rem; }
+
+main { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 40px); }
+.hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; padding: 88px 0 72px; align-items: center; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.3rem); line-height: 1.08; text-wrap: balance; letter-spacing: -.01em; }
+h1 em, h2 em { font-style: normal; color: var(--accent); }
+.hero p.sub { color: var(--mute); max-width: 46ch; font-size: 1.08rem; margin-top: 20px; }
+.btns { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.note { color: var(--mute); font-size: .85rem; margin-top: 14px; max-width: 46ch; }
+
+.phone { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 18px; max-width: 380px; width: 100%; justify-self: center; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+.phone .top { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-weight: 600; font-size: .95rem; }
+.phone .top img { height: 30px; }
+.phone .top small { display: block; color: var(--mute); font-weight: 400; font-size: .75rem; }
+.chat { display: flex; flex-direction: column; gap: 10px; padding: 18px 0 6px; }
+.b { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: .92rem; line-height: 1.4; }
+.b.in { background: #18213a; align-self: flex-start; border-bottom-left-radius: 4px; }
+.b.out { background: #1c4a8a; align-self: flex-end; border-bottom-right-radius: 4px; }
+.cap { color: var(--mute); font-size: .78rem; text-align: center; margin-top: 8px; }
+.cap b { color: var(--blue); font-weight: 600; }
+
+.hl { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hl div { padding: 24px 22px; border-right: 1px solid var(--line); }
+.hl div:last-child { border-right: 0; }
+.hl strong { display: block; font-family: var(--display); font-size: .92rem; margin-bottom: 6px; }
+.hl span { color: var(--mute); font-size: .92rem; }
+
+section { padding: 104px 0 0; scroll-margin-top: 56px; }
+h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3.4vw, 2.3rem); line-height: 1.12; max-width: 24ch; text-wrap: balance; }
+.lead { color: var(--mute); margin-top: 14px; max-width: 56ch; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 40px; border-radius: 14px; overflow: hidden; }
+.card { background: var(--panel); padding: 28px 24px 32px; transition: background .2s; }
+.card:hover { background: #111b33; }
+.card .n { font-family: var(--display); font-size: .78rem; color: var(--blue); }
+.card h3 { font-size: 1.12rem; margin: 14px 0 8px; font-weight: 600; }
+.card p { color: var(--mute); font-size: .95rem; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.step { border-top: 2px solid var(--blue); padding-top: 14px; }
+.step b { font-family: var(--display); font-size: .78rem; color: var(--blue); }
+.step h3 { font-size: 1.1rem; margin: 8px 0 6px; font-weight: 600; }
+.step p { color: var(--mute); font-size: .95rem; }
+
+.dif { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+.dif ul { list-style: none; display: grid; gap: 22px; }
+.dif li { border-left: 2px solid var(--accent); padding-left: 18px; }
+.dif li strong { display: block; font-size: 1.05rem; }
+.dif li span { color: var(--mute); font-size: .95rem; }
+
+.faq { margin-top: 36px; max-width: 760px; }
+details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+summary { cursor: pointer; font-weight: 600; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--accent); font-size: 1.3rem; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { color: var(--mute); margin-top: 10px; max-width: 62ch; }
+
+.end { margin: 104px 0 0; padding: 56px clamp(20px, 5vw, 56px); background: var(--panel); border: 1px solid var(--line); border-radius: 18px; display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; align-items: center; }
+footer { margin-top: 72px; padding: 40px 0 56px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; color: var(--mute); font-size: .92rem; }
+footer h4 { color: var(--ink); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+footer a { display: block; text-decoration: none; padding: 3px 0; }
+footer a:hover { color: var(--ink); }
+.copy { grid-column: 1 / -1; font-size: .8rem; padding-top: 18px; border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .menu { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 56px 0 48px; }
+  .hl { grid-template-columns: 1fr 1fr; }
+  .hl div:nth-child(2) { border-right: 0; }
+  .hl div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .dif { grid-template-columns: 1fr; gap: 32px; }
+  footer { grid-template-columns: 1fr; }
+  section { padding-top: 72px; }
+}
+@media (max-aspect-ratio: 3/4) { .stage { height: 100svh; max-height: none; } }
+@media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
+</style>
+</head>
+<body>
+<header class="stage" id="stage" aria-label="Abertura Lincera">
+  <div class="fb">LINCERA</div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+  <div class="bar top"></div><div class="bar bot"></div>
+  <div class="lynx" id="lynx"><img src="assets/logo.png" alt="Logo Lincera"></div>
+  <div class="tag" id="tag">Soluções <b>Digitais</b></div>
+  <button class="replay" id="replay" type="button">Rever animação</button>
+</header>
+
+<nav>
+  <a class="logo" href="#inicio"><img src="assets/logo.png" alt="">LINCER<b>A</b></a>
+  <div class="menu">
+    <a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#diferenciais">Diferenciais</a><a href="#duvidas">Dúvidas</a>
+  </div>
+  <a class="btn main" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera">Falar no WhatsApp</a>
+</nav>
+
+<main id="conteudo">
+  <div class="hero" id="inicio">
+    <div>
+      <h1>Seu negócio vendendo mais <em>no digital.</em></h1>
+      <p class="sub">Sites, atendimento no WhatsApp, tráfego pago e automações feitos sob medida para a sua empresa.</p>
+      <div class="btns">
+        <a class="btn main" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera">Solicitar proposta</a>
+        <a class="btn" href="#servicos">Ver serviços</a>
+      </div>
+      <p class="note">A proposta não tem compromisso e traz prazo e valor combinados antes de começar.</p>
+    </div>
+    <div class="phone" aria-label="Exemplo de atendimento automático no WhatsApp">
+      <div class="top"><img src="assets/logo.png" alt=""><div>Atendimento<small>online agora</small></div></div>
+      <div class="chat">
+        <div class="b out">Oi! Queria marcar um horário para amanhã.</div>
+        <div class="b in">Olá! Tenho amanhã às 15h disponível. Posso confirmar?</div>
+        <div class="b out">Pode confirmar!</div>
+        <div class="b in">Pronto, agendado para amanhã às 15h. ✓</div>
+      </div>
+      <div class="cap"><b>Horário registrado na agenda</b> sem ninguém precisar responder.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div><strong>Atendimento 24h</strong><span>Seu cliente é respondido a qualquer hora.</span></div>
+    <div><strong>Entrega rápida</strong><span>Prazo combinado e cumprido.</span></div>
+    <div><strong>Contato direto</strong><span>Você fala com quem faz o trabalho.</span></div>
+    <div><strong>Foco em resultado</strong><span>Tudo pensado para gerar cliente.</span></div>
+  </div>
+
+  <section id="servicos">
+    <h2>O que a Lincera faz pela sua <em>empresa</em></h2>
+    <p class="lead">Comece pelo que faz mais falta hoje e some os outros serviços quando fizer sentido.</p>
+    <div class="grid">
+      <div class="card"><span class="n">01</span><h3>Sites profissionais</h3><p>Páginas rápidas, bonitas no celular e prontas para aparecer no Google.</p></div>
+      <div class="card"><span class="n">02</span><h3>Atendimento automático no WhatsApp</h3><p>Respostas, agendamentos e pedidos funcionando o dia todo.</p></div>
+      <div class="card"><span class="n">03</span><h3>Aplicativos</h3><p>Sistemas e apps sob medida para o seu processo.</p></div>
+      <div class="card"><span class="n">04</span><h3>Tráfego pago</h3><p>Anúncios que levam o cliente certo até o seu negócio.</p></div>
+      <div class="card"><span class="n">05</span><h3>Vídeos e artes</h3><p>Material visual com a identidade da sua marca.</p></div>
+      <div class="card"><span class="n">06</span><h3>Automações para empresas</h3><p>Tarefas repetitivas resolvidas sozinhas, para sobrar tempo.</p></div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <h2>Como <em>funciona</em></h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Conversa</h3><p>Entendemos seu negócio e o que você quer alcançar.</p></div>
+      <div class="step"><b>02</b><h3>Proposta</h3><p>Você recebe escopo, prazo e valor antes de começar.</p></div>
+      <div class="step"><b>03</b><h3>Entrega e acompanhamento</h3><p>Entregamos e seguimos por perto para ajustar o que for preciso.</p></div>
+    </div>
+  </section>
+
+  <section id="diferenciais">
+    <div class="dif">
+      <div>
+        <h2>Tecnologia de empresa grande, <em>atendimento de parceiro.</em></h2>
+        <div class="btns"><a class="btn main" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera">Quero conversar</a></div>
+      </div>
+      <ul>
+        <li><strong>Linguagem simples</strong><span>Sem termo técnico complicado. Você entende tudo que está contratando.</span></li>
+        <li><strong>Tudo em um só lugar</strong><span>Site, atendimento, anúncios e automações com uma equipe só.</span></li>
+        <li><strong>Feito sob medida</strong><span>Nada de modelo pronto igual ao do concorrente.</span></li>
+        <li><strong>Acompanhamento de perto</strong><span>Você sabe como está o andamento em cada etapa.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <h2>Dúvidas <em>frequentes</em></h2>
+    <div class="faq">
+      <details><summary>Qual o prazo de entrega?</summary><p>Depende do projeto. O prazo é combinado na proposta, antes de começarmos.</p></details>
+      <details><summary>Quanto custa?</summary><p>Cada projeto é sob medida. Você pede a proposta sem compromisso e recebe o valor combinado antes de começar.</p></details>
+      <details><summary>Tem suporte depois da entrega?</summary><p>Sim. Seguimos acompanhando de perto depois da entrega para ajustar o que for preciso.</p></details>
+      <details><summary>Preciso entender de tecnologia?</summary><p>Não. Explicamos tudo em linguagem simples e cuidamos da parte técnica por você.</p></details>
+    </div>
+  </section>
+
+  <div class="end">
+    <h2>Vamos tirar sua ideia do papel?</h2>
+    <a class="btn main" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera">Falar no WhatsApp</a>
+  </div>
+
+  <footer>
+    <div><a class="logo" href="#inicio" style="padding:0 0 12px"><img src="assets/logo.png" alt="">LINCER<b>A</b></a>Soluções digitais para negócios que querem vender mais.</div>
+    <div><h4>Navegação</h4><a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#diferenciais">Diferenciais</a><a href="#duvidas">Dúvidas</a></div>
+    <div><h4>Contato</h4><a href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera">WhatsApp (48) 98813-6549</a><a href="https://www.instagram.com/lincera_oficial">Instagram @lincera_oficial</a></div>
+    <div class="copy">© 2026 Lincera Soluções Digitais</div>
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var tag = document.getElementById('tag');
+  var lynx = document.getElementById('lynx');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var renderer;
+  try {
+    if (!window.THREE) throw new Error('no three');
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+  } catch (e) { stage.classList.add('nogl'); return; }
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  stage.insertBefore(renderer.domElement, stage.firstChild);
+
+  var scene = new THREE.Scene();
+  var LIGHT = new THREE.Color('#0c1426'), DARK = new THREE.Color('#04070d');
+  scene.background = LIGHT.clone();
+  var camera = new THREE.PerspectiveCamera(32, 2, 0.1, 100);
+
+  var hemi = new THREE.HemisphereLight(0x6f9bff, 0x0c1426, 0.35); scene.add(hemi);
+  var sun = new THREE.SpotLight(0xffd2a0, 3, 0, 0.5, 0.85, 1);
+  sun.position.set(-5, 12, 9); sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0004; sun.shadow.radius = 4;
+  sun.shadow.camera.near = 2; sun.shadow.camera.far = 40;
+  scene.add(sun);
+  var fill = new THREE.DirectionalLight(0x2f6bff, 1.1); fill.position.set(8, 4, 4); scene.add(fill);
+  scene.fog = new THREE.FogExp2(0x0c1426, 0.02);
+  var dn = 260, dg = new THREE.BufferGeometry(), dp = new Float32Array(dn * 3);
+  for (var di = 0; di < dn; di++) { dp[di * 3] = (Math.random() - 0.5) * 16; dp[di * 3 + 1] = Math.random() * 7; dp[di * 3 + 2] = (Math.random() - 0.5) * 8; }
+  dg.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  var dustMat = new THREE.PointsMaterial({ color: 0xffe2b8, size: 0.035, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending });
+  var dust = new THREE.Points(dg, dustMat); scene.add(dust);
+  var rim = new THREE.PointLight(0xff8a1f, 0, 30); rim.position.set(0, 1.4, -0.9); scene.add(rim);
+  var front = new THREE.PointLight(0xff8a1f, 0, 20); front.position.set(-4, 2.5, 6); scene.add(front);
+
+  var roomMat = new THREE.MeshStandardMaterial({ color: LIGHT.clone(), roughness: 0.95, metalness: 0 });
+  var floorMat = new THREE.MeshStandardMaterial({ color: LIGHT.clone(), roughness: 0.32, metalness: 0.35 });
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(80, 40), floorMat);
+  floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, 5); floor.receiveShadow = true; scene.add(floor);
+  var wall = new THREE.Mesh(new THREE.PlaneGeometry(80, 40), roomMat);
+  wall.position.set(0, 20, -1.4); wall.receiveShadow = true; scene.add(wall);
+
+  /* ---- letras em bloco, desenhadas à mão ---- */
+  var T = 0.3;
+  function sh(pts) { var s = new THREE.Shape(); s.moveTo(pts[0][0], pts[0][1]); for (var i = 1; i < pts.length; i++) s.lineTo(pts[i][0], pts[i][1]); s.closePath(); return s; }
+  function rc(x, y, w, h) { return sh([[x, y], [x + w, y], [x + w, y + h], [x, y + h]]); }
+  function cShape() { var s = new THREE.Shape(), a = 0.62, TP = Math.PI * 2; s.absarc(0.5, 0.5, 0.5, a, TP - a, false); s.absarc(0.5, 0.5, 0.2, TP - a, a, true); s.closePath(); return s; }
+  function bowl() {
+    var s = new THREE.Shape(); s.moveTo(0.1, 1); s.lineTo(0.46, 1); s.absarc(0.46, 0.7, 0.3, Math.PI / 2, -Math.PI / 2, true); s.lineTo(0.1, 0.4); s.closePath();
+    var h = new THREE.Path(); h.moveTo(T, 0.64); h.lineTo(0.46, 0.64); h.absarc(0.46, 0.7, 0.06, -Math.PI / 2, Math.PI / 2, false); h.lineTo(T, 0.76); h.closePath();
+    s.holes.push(h); return s;
+  }
+  var defs = {
+    L: { w: 0.66, p: [rc(0, 0, T, 1), rc(0, 0, 0.66, T)] },
+    I: { w: T, p: [rc(0, 0, T, 1)] },
+    N: { w: 0.92, p: [sh([[0, 0], [T, 0], [T, 0.6], [0.92 - T, 0], [0.92, 0], [0.92, 1], [0.92 - T, 1], [0.92 - T, 0.4], [T, 1], [0, 1]])] },
+    C: { w: 1, p: [cShape()] },
+    E: { w: 0.68, p: [rc(0, 0, T, 1), rc(0, 0, 0.68, 0.24), rc(0, 0.38, 0.6, 0.24), rc(0, 0.76, 0.68, 0.24)] },
+    R: { w: 0.86, p: [rc(0, 0, T, 1), bowl(), sh([[0.3, 0.46], [0.56, 0.46], [0.86, 0], [0.58, 0]])] },
+    A: { w: 1.04, p: [sh([[0, 0], [0.28, 0], [0.66, 1], [0.38, 1]]), sh([[1.04, 0], [0.76, 0], [0.38, 1], [0.66, 1]]), rc(0.2, 0.2, 0.64, 0.2)] }
+  };
+  var mat = new THREE.MeshStandardMaterial({ color: 0xff8a1f, roughness: 0.3, metalness: 0.45, emissive: 0xff5a00, emissiveIntensity: 0 });
+  var order = 'LINCERA'.split(''), S = 1.6, GAP = 0.14;
+  var RX = [-1.6, 1.9, -2.1, 2.6, -1.8, 2.2, -2.4], RZ = [0.7, -0.9, 0.5, -1.2, 0.8, -0.6, 1.0], RY = [0.5, -0.6, 0.8, -0.9, 0.4, 0.7, -0.5];
+  var total = 0; order.forEach(function (c) { total += defs[c].w; }); total += GAP * (order.length - 1);
+  var x = -total / 2, letters = [];
+  order.forEach(function (c, i) {
+    var d = defs[c], g = new THREE.Group();
+    d.p.forEach(function (shape) {
+      var geo = new THREE.ExtrudeGeometry(shape, { depth: 0.36, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 2, curveSegments: 28 });
+      geo.translate(-d.w / 2, 0, -0.18);
+      var m = new THREE.Mesh(geo, mat); m.castShadow = true; m.receiveShadow = true; g.add(m);
+    });
+    g.scale.setScalar(S);
+    g.userData.x = (x + d.w / 2) * S;
+    x += d.w + GAP;
+    scene.add(g);
+    letters.push({ g: g, delay: 0.5 + i * 0.3 + (i === 3 ? 0.15 : 0), y0: 15, rx: RX[i], ry: RY[i], rz: RZ[i], y: 15, vy: 0, settled: false });
+  });
+
+  var t = 0, shake = 0, dist = 10, last = 0;
+  function reset() {
+    t = 0; shake = 0;
+    letters.forEach(function (s) { s.y = s.y0; s.vy = 0; s.settled = false; s.g.visible = false; });
+  }
+  function settleAll() {
+    t = 20;
+    letters.forEach(function (s) { s.y = 0; s.vy = 0; s.settled = true; s.g.visible = true; s.g.rotation.set(0, 0, 0); s.g.position.set(s.g.userData.x, 0.05, 0); });
+  }
+  function fit() {
+    var w = stage.clientWidth, h = stage.clientHeight; if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    var tn = Math.tan(camera.fov * Math.PI / 360);
+    dist = Math.max(12 / (2 * tn * camera.aspect), 4.6 / (2 * tn));
+    camera.updateProjectionMatrix();
+  }
+  function step(dt) {
+    t += dt;
+    letters.forEach(function (s) {
+      var g = s.g;
+      if (t < s.delay) { g.visible = false; return; }
+      g.visible = true;
+      if (!s.settled) {
+        s.vy -= 36 * dt; s.y += s.vy * dt;
+        if (s.y <= 0) {
+          s.y = 0;
+          if (Math.abs(s.vy) > 4) {
+            if (Math.abs(s.vy) > 12) shake = Math.max(shake, Math.min(0.22, Math.abs(s.vy) * 0.012));
+            s.vy = -s.vy * 0.33;
+          } else { s.vy = 0; s.settled = true; }
+        }
+      }
+      var f = Math.pow(Math.min(1, s.y / s.y0), 1.3);
+      g.rotation.set(s.rx * f, s.ry * f, s.rz * f);
+      g.position.set(g.userData.x, s.y + 0.05, 0);
+    });
+  }
+  function ease(v) { v = Math.max(0, Math.min(1, v)); return v * v * (3 - 2 * v); }
+  function render(dt) {
+    var m = ease((t - 5.6) / 2.4);
+    roomMat.color.copy(LIGHT).lerp(DARK, m);
+    scene.background.copy(roomMat.color); floorMat.color.copy(roomMat.color).multiplyScalar(0.8);
+    mat.emissiveIntensity = 0.35 * m;
+    var on = ease(t / 1.4);
+    sun.intensity = (3.2 - 2.5 * m) * on; hemi.intensity = (0.3 - 0.22 * m) * (0.3 + 0.7 * on); fill.intensity = (1.1 - 0.4 * m) * on;
+    scene.fog.color.copy(roomMat.color); dustMat.opacity = 0.6 * on; dust.rotation.y += dt * 0.03; dust.position.y = Math.sin(t * 0.3) * 0.15;
+    rim.intensity = 3.4 * m; front.intensity = 1.2 * m;
+    tag.style.opacity = m.toFixed(3);
+    var lz = ease((t - 6.2) / 1.6);
+    lynx.style.opacity = lz.toFixed(3);
+    lynx.style.transform = 'translateX(-50%) translateY(' + ((1 - lz) * 18).toFixed(1) + 'px) scale(' + (0.85 + 0.15 * lz).toFixed(3) + ')';
+    var e = ease(t / 9), d = dist * (1.2 - 0.2 * e), ang = -0.3 + 0.22 * e;
+    camera.position.set(Math.sin(ang) * d + (Math.random() - 0.5) * shake, 2.1 + 0.4 * e + (Math.random() - 0.5) * shake, Math.cos(ang) * d);
+    shake *= Math.pow(0.02, dt);
+    camera.lookAt(0, 0.85, 0);
+    renderer.render(scene, camera);
+  }
+  function frame(now) {
+    var dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now;
+    if (!reduce) step(dt);
+    render(dt);
+    requestAnimationFrame(frame);
+  }
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+  if (reduce) settleAll(); else reset();
+  requestAnimationFrame(frame);
+  document.getElementById('replay').addEventListener('click', function () { reduce ? settleAll() : reset(); });
+})();
+</script>
+</body>
+</html>
