@@ -40,6 +40,20 @@ function iniciar() {
     { arquivo: 'final', z: -ESPACO * 2, proporcao: 1.6, brilho: 1, giro: -0.05 },
   ];
 
+  // Tingimento azul-noite (design.md §6): as imagens não mudam, só a cor com que são desenhadas.
+  // TINTA puxa os tons para o azul (valores lineares; a média de luminância fica perto de 1).
+  // PISO soma o azul-noite do site, então o preto da imagem vira exatamente #080B14
+  // e os escuros caem na faixa #080B14–#0E1424.
+  const TINTA = { r: 0.66, g: 0.84, b: 1.5 };
+  const PISO = new THREE.Color(AZUL_NOITE); // convertido para linear pelo Three.js
+  function tingir(shader) {
+    shader.uniforms.piso = { value: PISO };
+    shader.fragmentShader = 'uniform vec3 piso;\n' + shader.fragmentShader.replace(
+      '#include <map_fragment>',
+      '#include <map_fragment>\n\tdiffuseColor.rgb = piso + diffuseColor.rgb * ( vec3( 1.0 ) - piso );',
+    );
+  }
+
   const carregador = new THREE.TextureLoader();
   const sufixo = celular ? '-celular' : '';
   let prontos = 0;
@@ -49,8 +63,13 @@ function iniciar() {
     p.grupo.position.z = p.z;
     p.grupo.rotation.z = p.giro;
 
+    // Cor: brilho da imagem × tinta azulada, e os pretos sobem até o azul-noite do site (piso).
     const k = Math.pow(p.brilho, 2.2); // brilho em sRGB → multiplicador linear
-    p.material = new THREE.MeshBasicMaterial({ color: new THREE.Color(k, k, k), transparent: true });
+    p.material = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(k * TINTA.r, k * TINTA.g, k * TINTA.b),
+      transparent: true,
+    });
+    p.material.onBeforeCompile = tingir;
     p.imagem = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), p.material);
     p.grupo.add(p.imagem);
 
