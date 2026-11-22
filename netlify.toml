@@ -1,0 +1,5 @@
+# Publica só a página e os arquivos do site (index.html e assets/).
+# Usado quando o repositório for ligado ao projeto "lincera" no Netlify.
+[build]
+  command = "rm -rf publico && mkdir -p publico && cp -r index.html assets publico/"
+  publish = "publico"

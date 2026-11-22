@@ -1,0 +1,17 @@
+# Arquivos internos do projeto: ficam só no computador, fora do repositório público
+CLAUDE.md
+memoria.md
+imagens.md
+specs/
+index-antigo.html
+
+# Estado local do Netlify CLI
+.netlify/
+
+# Pasta gerada no build do Netlify
+publico/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
