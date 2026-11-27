@@ -2,44 +2,81 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lincera Soluções Digitais</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lincera Soluções Digitais | Atendimento no WhatsApp, sites e anúncios</title>
 <meta name="description" content="A Lincera Soluções Digitais cria sites, aplicativos, atendimento automático no WhatsApp, tráfego pago e automações para o seu negócio vender mais no digital.">
+<link rel="canonical" href="https://lincera.com.br/">
 <meta name="theme-color" content="#080B14">
-<!-- Prévia de link (imagem-11) ainda não existe: adicionar og:image quando a imagem estiver pronta. -->
-<link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="apple-touch-icon" href="assets/logo.png">
+
+<!-- Prévia de link (WhatsApp, Instagram, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Lincera Soluções Digitais">
+<meta property="og:url" content="https://lincera.com.br/">
+<meta property="og:title" content="Lincera Soluções Digitais">
+<meta property="og:description" content="Atendimento automático no WhatsApp, sites, aplicativos, tráfego pago e automações para pequenos negócios.">
+<meta property="og:image" content="https://lincera.com.br/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lincera: atendimento no WhatsApp, sites e anúncios para pequenos negócios">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Ícones: o lince low-poly do logo -->
+<link rel="icon" href="assets/lince/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="assets/lince/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/lince/apple-touch-icon.png">
+<link rel="manifest" href="assets/lince/site.webmanifest">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,300&display=swap" rel="stylesheet">
+<link rel="modulepreload" href="assets/js/three.module.min.js">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Lincera Soluções Digitais",
+  "url": "https://lincera.com.br/",
+  "logo": "https://lincera.com.br/assets/lince/icon-512.png",
+  "image": "https://lincera.com.br/assets/share.jpg",
+  "description": "Sites, aplicativos, atendimento automático no WhatsApp, tráfego pago e automações para pequenos negócios.",
+  "telephone": "+55 48 98813-6549",
+  "sameAs": ["https://www.instagram.com/lincera_oficial/"]
+}
+</script>
+
 <style>
-  /* Tokens — specs/design.md §2 */
+  /* Tokens — specs/design.md §2 (cores do logo do lince) */
   :root {
-    --fundo: #080B14;
+    --fundo: #080B14;        /* azul-noite */
+    --superficie: #0D1220;   /* painéis e aparelhos (derivado do fundo) */
+    --superficie-2: #151B2B;
     --rodape: #04060C;
     --claro: #F1F1F1;
     --branco: #FFFFFF;
-    --cinza-inativo: #5A6275;
-    --cinza-inativo-claro: #DADADA;
+    --texto-2: #ABAAA9;      /* --cinza-rotulo do design.md: apoio e rótulos (8:1) */
+    --inativo: #5A6275;      /* --cinza-inativo: itens inativos das listas grandes */
     --linha: #262B38;
-    --cinza-rotulo: #ABAAA9;
-    --cinza-link: #868686;
-    --botao-escuro: #C9C9C9;
-    --laranja: #F5A03C;
-    --azul: #5FF0FF;
+    --borda: #2E3546;        /* contorno dos aparelhos desenhados */
+    --laranja: #F5A03C;      /* laranja do logo: destaque principal */
+    --azul: #5FF0FF;         /* azul dos olhos do lince: só detalhe (foco, hover, ponto online) */
+    --sobre-laranja: #080B14;
 
     --sans: "Inter Tight", system-ui, sans-serif;
     --serif: "Newsreader", Georgia, serif;
 
-    --margem: clamp(1.25rem, 2.5vw, 2.5rem);
-    --respiro: clamp(5rem, 11vw, 10rem);
-    /* Display: cabe na largura (COMPLICAR ≈ 5,2em) e na altura da primeira tela junto com a frase de apoio */
-    --display: min(clamp(3rem, 9vw, 9rem), calc((100vw - 2 * var(--margem)) / 5.5), calc((100svh - 15rem) / 3.8));
-    --titulo: clamp(2rem, 4.2vw, 4rem); /* médio: títulos em uma linha no computador */
+    --margem: clamp(1.25rem, 4vw, 4rem);
+    --largura: 1360px;
+    --respiro: clamp(5rem, 10vw, 9rem);
+    --titulo: clamp(2rem, 4.2vw, 4rem);
+    --raio: 14px;
+    --curva: cubic-bezier(.2, .7, .2, 1);
+    --topo: 4.5rem;          /* altura do cabeçalho */
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--topo); -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--fundo);
@@ -48,499 +85,503 @@
     font-size: 1.0625rem;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  img { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--laranja); color: var(--fundo); }
-  :focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; }
+  p { margin: 0; }
+  ::selection { background: var(--laranja); color: var(--sobre-laranja); }
+  :focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; border-radius: 4px; }
+  .claro :focus-visible { outline-color: var(--fundo); }
 
-  /* Fundo 3D (assets/js/fundo-3d.js). Enquanto ele não carrega, ou com "menos movimento"
-     ou sem WebGL, fica a FundoTopo parada sob um véu azul-noite liso. */
-  .fundo {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: var(--fundo) url("assets/fundos/topo.jpg") center / cover no-repeat;
+  .pular {
+    position: fixed; z-index: 100; left: var(--margem); top: 0.75rem;
+    padding: 0.6rem 1rem; border-radius: 10px; background: var(--laranja); color: var(--sobre-laranja);
+    font-weight: 500; transform: translateY(-200%);
   }
-  .fundo::after { content: ""; position: absolute; inset: 0; background: rgb(8 11 20 / 0.72); }
-  .fundo canvas {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-  }
-  .fundo.pronto canvas { opacity: 1; }
-  @media (max-width: 800px) {
-    .fundo { background-image: url("assets/fundos/topo-celular.jpg"); }
+  .pular:focus { transform: none; }
+  .so-leitor {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
 
-  .caixa-alta { text-transform: uppercase; letter-spacing: -0.04em; }
+  .wrap { width: min(100% - 2 * var(--margem), var(--largura)); margin-inline: auto; }
+  .secao { padding-block: var(--respiro); }
+
+  /* Tipografia — design.md §3 */
   .titulo {
     margin: 0;
     font-size: var(--titulo);
     font-weight: 500;
-    line-height: 0.9;
+    line-height: 0.92;
     text-transform: uppercase;
     letter-spacing: -0.04em;
+    text-wrap: balance;
   }
-  .apoio { margin: 0; max-width: 34rem; color: var(--cinza-rotulo); }
+  .apoio { max-width: 36rem; color: var(--texto-2); }
+  .apoio--grande { font-size: clamp(1.0625rem, 1.35vw, 1.25rem); }
   .rotulo {
+    display: block;
     font-size: 0.75rem;
     font-weight: 500;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--cinza-rotulo);
+    color: var(--texto-2);
   }
+  .rotulo--laranja { color: var(--laranja); }
   .manchete {
-    margin: 0;
     font-family: var(--serif);
     font-style: italic;
     font-weight: 300;
     font-size: clamp(1.25rem, 1.6vw, 1.625rem);
-    line-height: 1.2;
+    line-height: 1.22;
   }
-  .secao { padding: var(--respiro) var(--margem); }
+  .topo-secao { display: grid; gap: 1.25rem; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
 
   /* Botões — design.md §5 */
   .pilula {
     display: inline-flex;
     align-items: center;
-    height: 2.25rem;
-    padding: 0 0.85rem;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem; /* 44px: alvo de toque confortável */
+    padding: 0 1rem;
     border: 1px solid currentColor;
     border-radius: 10px;
-    font-size: 0.9375rem;
-    line-height: 1;
+    background: transparent;
+    color: inherit;
+    font: 400 0.9375rem/1 var(--sans);
+    letter-spacing: -0.03em;
     text-transform: uppercase;
-    letter-spacing: -0.05em;
     white-space: nowrap;
-    transition: background-color .2s, color .2s, border-color .2s;
+    cursor: pointer;
+    transition: background-color .2s, color .2s, border-color .2s, transform .15s var(--curva), opacity .25s, visibility .25s;
   }
   .pilula:hover { background: var(--branco); border-color: var(--branco); color: var(--fundo); }
-  .pilula--principal { background: var(--laranja); border-color: var(--laranja); color: var(--fundo); font-weight: 500; }
+  .pilula:active { transform: scale(0.97); }
+  .pilula--principal { background: var(--laranja); border-color: var(--laranja); color: var(--sobre-laranja); font-weight: 500; }
   .pilula--principal:hover { background: transparent; border-color: var(--laranja); color: var(--laranja); }
-  .seta { display: inline-flex; gap: 2px; }
-  .seta .pilula:last-child { width: 2.25rem; justify-content: center; padding: 0; }
+  .pilula--grande { min-height: 3.25rem; padding: 0 1.5rem; font-size: 1rem; }
+  .claro .pilula:hover { background: var(--fundo); border-color: var(--fundo); color: var(--claro); }
+  .seta { display: inline-flex; gap: 3px; }
+  .seta .pilula:last-child { width: 2.75rem; padding: 0; }
+  .seta--grande .pilula { min-height: 3.25rem; }
+  .seta--grande .pilula:last-child { width: 3.25rem; }
   .seta:hover .pilula { background: var(--branco); border-color: var(--branco); color: var(--fundo); }
+  .claro .seta:hover .pilula { background: var(--fundo); border-color: var(--fundo); color: var(--claro); }
+  .seta .pilula:last-child span { transition: transform .2s var(--curva); }
+  .seta:hover .pilula:last-child span { transform: translateX(3px); }
 
-  /* 1. Cabeçalho */
+  /* Link de texto com sublinhado que se desenha */
+  .link { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s var(--curva), color .2s; }
+  .link:hover { background-size: 100% 1px; color: var(--azul); }
+
+  /* ------------------------------------------------ 1. Cabeçalho */
   .cabecalho {
     position: fixed;
     inset: 0 0 auto 0;
-    z-index: 10;
+    z-index: 20;
+    height: var(--topo);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem var(--margem);
-    color: var(--branco);
-    /* Fundo azul-noite semitransparente com desfoque: o texto de trás não aparece por baixo do menu */
     background: rgb(8 11 20 / 0.72);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--linha);
   }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .cabecalho { background: rgb(8 11 20 / 0.94); } /* sem desfoque, fundo quase opaco */
+    .cabecalho { background: rgb(8 11 20 / 0.94); }
   }
-  .marca { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 500; font-size: 1.25rem; }
-  .marca img { width: 26px; height: auto; }
+  .cabecalho .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .marca { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.25rem 0; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.04em; text-transform: uppercase; }
+  .marca img { height: 34px; width: auto; }
   .nav { display: flex; align-items: center; gap: 0.5rem; }
-  .nav .nota { margin: 0 0.25rem 0 0.75rem; text-transform: none; font-weight: 400; font-size: 0.8125rem; }
-  @media (max-width: 1000px) { .nav .nota { display: none; } } /* sem espaço ao lado dos links */
+  .nav .nota { margin: 0 0.25rem 0 0.75rem; font-size: 0.8125rem; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--texto-2); }
+  .menu-botao { display: none; }
+  /* Some quando outra chamada laranja está na tela; encolhe para os links não ficarem com um buraco ao lado */
+  .cabecalho [data-some-com-chamada] { max-width: 16rem; overflow: hidden; transition: opacity .25s, visibility .25s, max-width .35s var(--curva), padding .35s var(--curva), margin .35s var(--curva), border-width .35s; }
+  .cabecalho [data-some-com-chamada].escondido { opacity: 0; visibility: hidden; max-width: 0; padding-inline: 0; margin-inline: 0; border-width: 0; }
+  @media (max-width: 1120px) { .nav .nota { display: none; } }
 
-  /* 2. Manifesto */
-  .manifesto {
+  /* Menu do celular: tela cheia */
+  .menu {
+    position: fixed;
+    inset: var(--topo) 0 0 0;
+    z-index: 19;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem var(--margem) calc(2rem + env(safe-area-inset-bottom));
+    background: var(--fundo);
+  }
+  .menu.aberto { display: flex; }
+  .menu ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+  .menu li a {
+    display: flex; justify-content: space-between; align-items: center;
+    min-height: 3.75rem; border-bottom: 1px solid var(--linha);
+    font-size: 1.75rem; font-weight: 500; letter-spacing: -0.04em; text-transform: uppercase;
+  }
+  .menu .pilula { width: 100%; }
+
+  /* ------------------------------------------------ 2. Abertura */
+  .abertura {
+    position: relative;
     min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding: 7rem var(--margem) 2.5rem;
-  }
-  .manifesto h1 {
-    margin: 0;
-    font-size: var(--display);
-    font-weight: 500;
-    line-height: 0.9;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-  }
-  /* A máscara da entrada corta só em cima e embaixo; nas laterais a letra pode passar da caixa (o "R" final) */
-  .manifesto .linha { display: block; clip-path: inset(0 -0.5em); padding-bottom: 0.04em; }
-  .manifesto .linha > span { display: block; animation: sobe 0.9s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(0.15s + var(--i) * 0.14s); }
-  .manifesto .destaque { color: var(--laranja); }
-  .manifesto-texto { display: grid; gap: clamp(1.25rem, 2.5vw, 2rem); }
-  .manifesto .apoio {
-    max-width: 30rem;
-    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-    animation: aparece 0.8s ease both;
-    animation-delay: 0.85s;
-  }
-  @keyframes sobe { from { transform: translateY(105%); } to { transform: translateY(0); } }
-  @keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
-
-  /* 3. Declaração */
-  /* Topo → serviços mais próximo: declaração e serviços com respiro reduzido entre si */
-  .declaracao { display: grid; gap: 2.5rem; padding-top: calc(var(--respiro) * 0.5); padding-bottom: 0; }
-  .indice { padding-top: calc(var(--respiro) * 0.7); }
-  .declaracao .titulo span { display: block; } /* uma frase por linha */
-
-  /* 4. Índice de serviços */
-  .indice-lista { list-style: none; margin: 0; padding: 0; }
-  .item {
     display: grid;
-    grid-template-columns: 3.5rem 1fr minmax(12rem, 14rem);
-    align-items: end;
-    column-gap: 1rem;
-    padding: 0.08em 0;
-    /* Médio, e nunca maior do que cabe o nome mais longo (~19em) em uma linha no computador */
-    font-size: min(clamp(1.75rem, 3.2vw, 3.25rem), calc((100vw - 2 * var(--margem) - 21.5rem) / 19.6));
+    align-items: center;
+    padding-block: calc(var(--topo) + clamp(1.5rem, 4vh, 3rem)) clamp(2rem, 5vh, 3.5rem);
+    overflow: hidden;
+  }
+  .abertura .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
+    align-items: center;
+  }
+  .abertura-texto { display: grid; gap: clamp(1.25rem, 2.4vh, 1.75rem); justify-items: start; container-type: inline-size; }
+  .abertura h1 {
+    margin: 0;
+    /* três linhas: cabe na coluna (a mais longa tem ~14em) e na altura da primeira tela */
+    font-size: min(6.9cqw, 4.4rem, calc((100svh - 24rem) / 3.1));
     font-weight: 500;
     line-height: 0.95;
     letter-spacing: -0.045em;
     text-transform: uppercase;
-    color: var(--cinza-inativo);
-    transition: color .15s;
   }
-  .item .num { font-size: 1rem; font-weight: 400; letter-spacing: 0; padding-bottom: 0.45em; }
-  .item em { font-style: normal; transition: color .15s; }
-  .item .desc {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--cinza-rotulo);
-    opacity: 0;
-    padding-bottom: 0.3em;
-    transition: opacity .15s;
-  }
-  .item.ativo { color: var(--branco); }
-  .item.ativo em { color: var(--laranja); }
-  .item.ativo .desc { opacity: 1; }
-  .indice-acoes { display: flex; justify-content: flex-end; margin-top: 3rem; }
+  .abertura h1 .linha { display: block; clip-path: inset(-0.1em -0.5em); white-space: nowrap; }
+  .abertura h1 .linha > span { display: block; animation: sobe 1s var(--curva) both; animation-delay: calc(0.1s + var(--i) * 0.12s); }
+  .abertura h1 em { font-style: normal; color: var(--laranja); }
+  .entra { animation: aparece 0.9s ease both; animation-delay: var(--d, 0.6s); }
+  .abertura .apoio { max-width: 33rem; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .fatos { display: grid; grid-template-columns: repeat(2, minmax(0, 15rem)); gap: 1.5rem; margin-top: clamp(0.25rem, 1.5vh, 1rem); }
+  .fato { display: grid; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--linha); }
+  .fato .manchete { font-size: 1.125rem; }
+  @keyframes sobe { from { transform: translateY(108%); } to { transform: none; } }
+  @keyframes aparece { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-  /* 5. Exemplo de atendimento */
-  .atendimento { padding-top: calc(var(--respiro) * 0.7); }
-  .atendimento-grade { display: grid; grid-template-columns: minmax(0, 26rem) 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
-  .conversa { background: var(--fundo); border: 1px solid var(--linha); border-radius: 12px; overflow: hidden; }
-  .conversa-topo { display: flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--linha); font-size: 0.9375rem; font-weight: 500; }
-  .conversa-topo .online { width: 8px; height: 8px; border-radius: 50%; background: var(--azul); } /* azul só em detalhe */
-  .conversa-topo .rotulo { margin-left: auto; }
-  .mensagens { display: grid; gap: 0.6rem; padding: 1.25rem 1.1rem 0.75rem; }
-  .msg { margin: 0; max-width: 85%; padding: 0.6rem 0.85rem; border-radius: 12px; font-size: 0.9375rem; line-height: 1.4; transition: opacity .35s, transform .35s; }
-  .msg--cliente { justify-self: end; background: var(--linha); border-bottom-right-radius: 4px; }
-  .msg--atendimento { justify-self: start; border: 1px solid var(--linha); border-bottom-left-radius: 4px; }
-  /* As mensagens só ficam escondidas quando o script assume a animação; sem script, a conversa aparece completa */
-  .conversa.animar .msg:not(.visivel) { opacity: 0; transform: translateY(6px); }
-  .digitando { margin: 0; padding: 0 1.1rem 1rem; min-height: 2.5rem; font-size: 0.8125rem; color: var(--cinza-rotulo); opacity: 0; transition: opacity .2s; }
-  .digitando.ativo { opacity: 1; }
-  .destaques { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem clamp(1.25rem, 2.5vw, 2.5rem); }
-  .destaque-item { display: grid; gap: 0.9rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid var(--linha); }
-
-  /* 6. Cards — seção clara */
-  .claro { background: var(--claro); color: var(--fundo); }
-  .claro .apoio { color: color-mix(in srgb, var(--fundo) 65%, var(--claro)); }
-  .claro .rotulo { color: color-mix(in srgb, var(--fundo) 60%, var(--claro)); }
-  .claro .pilula:hover, .claro .seta:hover .pilula { background: var(--fundo); border-color: var(--fundo); color: var(--claro); }
-  .titulo-espalhado { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 1.5rem; }
-  .cards-topo { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
-  .cards {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(17rem, 1fr);
-    gap: clamp(1.25rem, 3vw, 3rem);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-  .cards::-webkit-scrollbar { display: none; }
-  .card { scroll-snap-align: start; display: grid; gap: 1rem; align-content: start; }
-  .card .manchete { max-width: 24ch; }
-  .cards-acoes { display: flex; justify-content: center; margin-top: clamp(3rem, 6vw, 5rem); }
-
-  /* Espaço reservado de imagem */
-  .reservado {
+  /* Palco 3D do celular. A luz laranja em volta é só luz da cena, não um degradê de interface. */
+  .palco {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #0F1422;
-    color: var(--cinza-rotulo);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    text-align: center;
-    outline: 1px dashed #3A4257;
-    outline-offset: -12px;
-  }
-  .reservado small { display: block; margin-top: 0.35rem; font-size: 0.6875rem; letter-spacing: 0.04em; color: var(--cinza-link); }
-  .reservado--4x5 { aspect-ratio: 4 / 5; }
-
-  /* Mockups em código dos cards (imagem-07, 08, 09). Medidas em cqw = % da largura do card,
-     então tudo escala junto. Paleta do design.md, sem sombras nem degradês. */
-  .mock {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    background: var(--fundo);
+    width: 100%;
+    height: min(76svh, 46rem);
     container-type: inline-size;
-    user-select: none;
   }
-  .mock p { margin: 0; }
-
-  /* Celular (07 e 09) */
-  .celular {
-    position: relative;
-    width: 54cqw;
-    aspect-ratio: 9 / 18.5;
-    padding: 1.8cqw;
-    background: var(--rodape);
-    border: 0.5cqw solid var(--linha);
-    border-radius: 7cqw;
-  }
-  .celular::before {
+  .palco::before {
     content: "";
     position: absolute;
-    z-index: 2;
-    top: 3.4cqw;
-    left: 50%;
-    width: 13cqw;
-    height: 2.6cqw;
-    translate: -50% 0;
-    border-radius: 2cqw;
-    background: var(--rodape);
+    inset: 8% 4% 2% 4%;
+    background: radial-gradient(closest-side, rgb(245 160 60 / 0.2), rgb(245 160 60 / 0.06) 55%, transparent 100%);
+    filter: blur(10px);
+    pointer-events: none;
   }
-  .celular-tela { height: 100%; overflow: hidden; display: flex; flex-direction: column; border-radius: 5.4cqw; background: var(--fundo); }
-  .celular-topo {
-    display: flex;
-    align-items: center;
-    gap: 1.6cqw;
-    padding: 8cqw 3.5cqw 2.6cqw;
-    border-bottom: 0.3cqw solid var(--linha);
-    font-size: 2.9cqw;
-    font-weight: 500;
-    color: var(--branco);
-  }
-  .celular-topo .online { flex: none; width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: var(--azul); } /* azul só em detalhe */
-  .celular-msgs { display: grid; align-content: start; gap: 2cqw; padding: 3.5cqw 3cqw; }
-  .bolha { max-width: 82%; padding: 1.8cqw 2.4cqw; border-radius: 2.6cqw; font-size: max(2.7cqw, 8px); line-height: 1.35; color: var(--branco); }
-  .bolha--cliente { justify-self: end; background: var(--linha); border-bottom-right-radius: 0.8cqw; }
-  .bolha--atendimento { justify-self: start; border: 0.3cqw solid var(--linha); border-bottom-left-radius: 0.8cqw; }
+  .palco canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; animation: aparece 1.2s ease both; }
 
-  /* Folha de proposta (08) */
-  .folha {
-    width: 60cqw;
-    aspect-ratio: 1 / 1.414;
-    display: flex;
-    flex-direction: column;
-    gap: 2.2cqw;
-    padding: 6cqw 5.5cqw;
-    background: var(--claro);
-    rotate: -4deg;
+  /* Reserva do celular em HTML: aparece sem WebGL e é o texto que o leitor de tela lê */
+  .reserva { position: absolute; inset: 0; display: grid; place-items: center; }
+  .palco.pronto .reserva { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Aparelhos em código (reserva da abertura e cards) — medidas em cqw = % da largura do bloco */
+  .celular {
+    position: relative;
+    width: min(46cqw, 20rem);
+    aspect-ratio: 9 / 18.5;
+    padding: 1.4cqw;
+    background: var(--superficie);
+    border: 0.4cqw solid var(--borda);
+    border-radius: 6cqw;
   }
-  .folha-topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2cqw;
-    padding-bottom: 3cqw;
-    border-bottom: 0.3cqw solid var(--cinza-inativo-claro);
+  .celular-tela { height: 100%; overflow: hidden; display: flex; flex-direction: column; border-radius: 4.8cqw; background: #0A0E19; }
+  .celular-topo { display: flex; align-items: center; gap: 1.4cqw; padding: 7cqw 3cqw 2.4cqw; border-bottom: 1px solid var(--linha); font-size: max(2.6cqw, 11px); font-weight: 500; }
+  .ponto-online { flex: none; width: 1.5cqw; height: 1.5cqw; min-width: 7px; min-height: 7px; border-radius: 50%; background: var(--azul); } /* azul só em detalhe */
+  .celular-msgs { display: grid; align-content: start; gap: 1.8cqw; padding: 3cqw 2.6cqw; }
+  .bolha { max-width: 84%; padding: 1.6cqw 2.2cqw; border-radius: 2.4cqw; font-size: max(2.4cqw, 10px); line-height: 1.35; }
+  .bolha--cliente { justify-self: end; background: var(--linha); border-bottom-right-radius: 0.8cqw; }
+  .bolha--atendimento { justify-self: start; background: var(--superficie); border: 1px solid var(--borda); border-bottom-left-radius: 0.8cqw; }
+  .digitando { display: inline-flex; gap: 0.9cqw; padding: 2.2cqw 2.6cqw; }
+  .digitando i { width: 1.3cqw; height: 1.3cqw; min-width: 5px; min-height: 5px; border-radius: 50%; background: var(--texto-2); animation: pulsa 1.2s ease-in-out infinite; }
+  .digitando i:nth-child(2) { animation-delay: .15s; }
+  .digitando i:nth-child(3) { animation-delay: .3s; }
+  @keyframes pulsa { 0%, 100% { opacity: .35; transform: none; } 50% { opacity: 1; transform: translateY(-20%); } }
+
+  /* ------------------------------------------------ 3. Serviços */
+  .servicos-grade {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
   }
+  .lista-servicos { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+  .lista-servicos li { border-bottom: 1px solid var(--linha); }
+  .item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: baseline;
+    width: 100%;
+    padding: clamp(0.85rem, 1.5vw, 1.2rem) 0;
+    border: 0;
+    background: none;
+    color: var(--inativo);
+    font: 500 clamp(1.375rem, 2.45vw, 2.4rem)/1 var(--sans);
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    transition: color .15s;
+  }
+  .item .num { font-size: 0.875rem; font-weight: 400; letter-spacing: 0; }
+  .item .nome em { font-style: normal; transition: color .15s; }
+  .item .desc { display: none; }
+  .item:hover, .item.ativo { color: var(--branco); }
+  .item.ativo .nome em { color: var(--laranja); }
+
+  .vitrine { position: sticky; top: calc(var(--topo) + 2rem); display: grid; gap: 1.25rem; }
+  .vitrine-quadro {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio);
+    background: var(--superficie);
+    container-type: inline-size;
+  }
+  .vis { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transform: scale(0.98); transition: opacity .35s ease, transform .5s var(--curva); }
+  .vis.ativo { opacity: 1; transform: none; }
+  .vitrine-texto { display: grid; gap: 1.25rem; justify-items: start; }
+  .vitrine-texto .manchete { min-height: 2.5em; }
+
+  /* Desenhos da vitrine (em código, sem dados reais) */
+  .mini-rotulo { font-size: 2.6cqw; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; color: var(--texto-2); }
+  .v-lista { width: 78cqw; display: grid; gap: 2.4cqw; }
+  .v-linha { display: grid; grid-template-columns: 11cqw 1fr auto; align-items: center; gap: 3cqw; padding: 3cqw 3.4cqw; border: 1px solid var(--linha); border-radius: 3cqw; background: var(--fundo); font-size: 3.2cqw; }
+  .v-linha b { font-weight: 500; color: var(--texto-2); }
+  .v-linha span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .v-linha .ok { font-size: 2.6cqw; color: var(--laranja); text-transform: uppercase; font-weight: 500; }
+
+  .v-navegador { width: 80cqw; border: 1px solid var(--borda); border-radius: 3cqw; overflow: hidden; background: var(--fundo); }
+  .v-barra { display: flex; align-items: center; gap: 1.2cqw; padding: 2.2cqw 2.8cqw; border-bottom: 1px solid var(--linha); }
+  .v-barra i { width: 1.8cqw; height: 1.8cqw; border-radius: 50%; background: var(--linha); }
+  .v-barra span { flex: 1; height: 3cqw; margin-left: 2cqw; border-radius: 1.5cqw; background: var(--superficie-2); }
+  .v-pagina { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4cqw; padding: 6cqw 5cqw; }
+  .v-pagina .bloco { display: grid; gap: 2cqw; align-content: center; }
+  .barra { display: block; width: var(--l, 100%); height: 2cqw; border-radius: 1cqw; background: var(--linha); }
+  .barra--forte { height: 4.4cqw; background: var(--branco); }
+  .barra--botao { width: 40%; height: 5.4cqw; margin-top: 2cqw; border-radius: 1.4cqw; background: var(--laranja); }
+  .v-imagem { aspect-ratio: 4 / 5; border-radius: 2cqw; background: var(--superficie-2); position: relative; overflow: hidden; }
+  .v-imagem::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: -10%; aspect-ratio: 1; border-radius: 50%; background: var(--laranja); opacity: .85; }
+  .v-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3cqw; padding: 0 5cqw 6cqw; }
+  .v-cards span { aspect-ratio: 4 / 3; border-radius: 2cqw; background: var(--superficie-2); }
+
+  .v-app { width: 40cqw; aspect-ratio: 9 / 18.5; padding: 1.6cqw; border: 0.6cqw solid var(--borda); border-radius: 6cqw; background: var(--superficie); }
+  .v-app-tela { height: 100%; display: flex; flex-direction: column; gap: 3cqw; padding: 7cqw 3.2cqw 3.2cqw; border-radius: 4.6cqw; background: #0A0E19; }
+  .v-app-tela strong { font-size: 4cqw; font-weight: 500; letter-spacing: -0.03em; }
+  .v-dias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2cqw; }
+  .v-dias span { padding: 1.6cqw 0; border-radius: 1.6cqw; border: 1px solid var(--linha); font-size: 2.4cqw; text-align: center; color: var(--texto-2); }
+  .v-dias .sel, .v-horas .sel { border-color: var(--laranja); color: var(--branco); }
+  .v-horas { display: grid; gap: 1.6cqw; }
+  .v-horas span { padding: 2.2cqw 2.4cqw; border-radius: 1.8cqw; border: 1px solid var(--linha); font-size: 2.8cqw; color: var(--texto-2); }
+  .v-app-tela .barra--botao { width: 100%; margin-top: auto; }
+
+  .v-post { width: 60cqw; border: 1px solid var(--borda); border-radius: 3cqw; overflow: hidden; background: var(--fundo); }
+  .v-post-topo { display: flex; align-items: center; gap: 2cqw; padding: 3cqw; }
+  .v-post-topo i { width: 6cqw; height: 6cqw; border-radius: 50%; background: var(--superficie-2); border: 0.5cqw solid var(--laranja); }
+  .v-post-topo div { display: grid; gap: 1.2cqw; flex: 1; }
+  .v-post-topo small { font-size: 2.4cqw; color: var(--texto-2); }
+  .v-post-imagem { aspect-ratio: 1; background: var(--superficie-2); display: grid; place-items: center; }
+  .v-post-imagem span { width: 46%; aspect-ratio: 1; border-radius: 50%; border: 3cqw solid var(--laranja); }
+  .v-post-acao { display: flex; justify-content: space-between; align-items: center; padding: 3cqw; }
+  .v-post-acao b { padding: 1.8cqw 3cqw; border-radius: 1.6cqw; background: var(--laranja); color: var(--sobre-laranja); font-size: 2.6cqw; font-weight: 500; text-transform: uppercase; }
+
+  .v-midia { display: flex; align-items: center; gap: 4cqw; }
+  .v-video { position: relative; width: 36cqw; aspect-ratio: 9 / 16; border-radius: 3cqw; background: var(--superficie-2); border: 1px solid var(--borda); overflow: hidden; }
+  .v-video::before { content: ""; position: absolute; left: 50%; top: 46%; translate: -40% -50%; border-style: solid; border-width: 5cqw 0 5cqw 8cqw; border-color: transparent transparent transparent var(--branco); }
+  .v-video::after { content: ""; position: absolute; left: 6%; right: 6%; bottom: 6%; height: 1cqw; border-radius: 1cqw; background: linear-gradient(90deg, var(--laranja) 0 42%, var(--linha) 42%); }
+  .v-artes { display: grid; gap: 4cqw; }
+  .v-arte { width: 26cqw; aspect-ratio: 1; border-radius: 3cqw; background: var(--superficie-2); border: 1px solid var(--borda); display: grid; place-items: center; }
+  .v-arte:first-child span { width: 50%; aspect-ratio: 1; border-radius: 50%; background: var(--laranja); }
+  .v-arte:last-child { place-items: end start; padding: 3cqw; }
+  .v-arte:last-child span { display: grid; gap: 1.4cqw; width: 70%; }
+
+  .v-fluxo { position: relative; width: 82cqw; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0; }
+  .no { padding: 2.6cqw 3cqw; border: 1px solid var(--borda); border-radius: 2.4cqw; background: var(--fundo); font-size: 3cqw; white-space: nowrap; }
+  .no--centro { width: 16cqw; aspect-ratio: 1; border-radius: 50%; border: 0.8cqw solid var(--laranja); background: var(--superficie-2); padding: 0; }
+  .v-fluxo .entrada { display: flex; align-items: center; }
+  .v-fluxo .entrada .cabo { flex: 1; }
+  .v-fluxo .saidas { display: grid; gap: 4cqw; }
+  .v-fluxo .saida { display: flex; align-items: center; }
+  .cabo { position: relative; height: 1px; min-width: 5cqw; flex: 1; background: var(--borda); overflow: hidden; }
+  .cabo::after { content: ""; position: absolute; top: -1cqw; left: 0; width: 6cqw; height: 2cqw; border-radius: 1cqw; background: var(--laranja); animation: corre 2.8s linear infinite; animation-delay: var(--atraso, 0s); }
+  @keyframes corre { from { transform: translateX(-6cqw); } to { transform: translateX(26cqw); } }
+
+  /* ------------------------------------------------ 4. Projeto */
+  .projeto { border-top: 1px solid var(--linha); }
+  .projeto-grade { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .projeto-texto { display: grid; gap: 1.5rem; justify-items: start; }
+  .projeto-texto .titulo { font-size: clamp(2.5rem, 5.5vw, 5.5rem); }
+  .feito { list-style: none; margin: 0; padding: 0; width: 100%; border-top: 1px solid var(--linha); }
+  .feito li { display: grid; grid-template-columns: 2.25rem 1fr; padding: 0.85rem 0; border-bottom: 1px solid var(--linha); }
+  .feito li span:first-child { color: var(--laranja); font-size: 0.875rem; }
+  .projeto-telas { position: relative; padding-bottom: 12%; }
+  .tela-site { border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; background: var(--superficie); }
+  .tela-site .v-barra { padding: 0.65rem 0.85rem; gap: 0.35rem; }
+  .tela-site .v-barra i { width: 0.55rem; height: 0.55rem; }
+  .tela-site .v-barra span { height: 0.95rem; margin-left: 0.6rem; border-radius: 0.5rem; }
+  .tela-site img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .6s var(--curva); }
+  .tela-site:hover img { transform: scale(1.025); }
+  .tela-site--frente { position: absolute; right: -4%; bottom: 0; width: 48%; outline: 6px solid var(--fundo); }
+  .projeto-link { color: var(--texto-2); }
+
+  /* ------------------------------------------------ 5. Como funciona (seção clara) */
+  .claro { background: var(--claro); color: var(--fundo); }
+  .claro .apoio { color: #4A5366; }
+  .claro .rotulo { color: #4A5366; }
+  .titulo-espalhado { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 1.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 2.5vw, 2.5rem); }
+  .card { display: grid; gap: 1rem; align-content: start; }
+  .card .manchete { max-width: 26ch; }
+  .mock { position: relative; aspect-ratio: 4 / 5; overflow: hidden; display: grid; place-items: center; background: var(--fundo); border-radius: var(--raio); container-type: inline-size; user-select: none; }
+  .mock { color: var(--branco); }
+  .mock .celular { width: 54cqw; }
+  .mock .celular--pequeno { width: 24cqw; padding: 1cqw; }
+  .cards-acoes { display: flex; justify-content: center; margin-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .folha { width: 60cqw; aspect-ratio: 1 / 1.414; display: flex; flex-direction: column; gap: 2.2cqw; padding: 6cqw 5.5cqw; background: var(--claro); rotate: -4deg; }
+  .folha-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2cqw; padding-bottom: 3cqw; border-bottom: 0.3cqw solid #D9DCE2; }
   .folha-marca { display: inline-flex; align-items: center; gap: 1.4cqw; font-size: 3.4cqw; font-weight: 500; letter-spacing: -0.04em; text-transform: uppercase; color: var(--fundo); }
-  .folha-marca img { width: 3.6cqw; height: auto; }
-  .folha-tipo { font-size: 2.2cqw; font-weight: 500; text-transform: uppercase; color: color-mix(in srgb, var(--fundo) 55%, var(--claro)); }
-  .barra { display: block; width: var(--l, 100%); height: 1.3cqw; border-radius: 0.6cqw; background: var(--cinza-inativo-claro); }
-  .barra--titulo { width: 58%; height: 3cqw; margin-bottom: 1cqw; background: var(--fundo); }
-  .barra--escura { height: 1.6cqw; background: color-mix(in srgb, var(--fundo) 55%, var(--claro)); }
+  .folha-marca img { height: 4.6cqw; width: auto; }
+  .folha-tipo { font-size: 2.2cqw; font-weight: 500; text-transform: uppercase; color: #4A5366; }
+  .folha .barra { height: 1.3cqw; border-radius: 0.6cqw; background: #D9DCE2; }
+  .folha .barra--titulo { width: 58%; height: 3cqw; margin-bottom: 1cqw; background: var(--fundo); }
+  .folha .barra--escura { height: 1.6cqw; background: #8A92A3; }
   .folha-espaco { height: 1.5cqw; }
   .folha-assinatura { width: 40%; margin-top: auto; border-top: 0.3cqw solid var(--fundo); }
   .selo {
-    position: absolute;
-    right: 9cqw;
-    bottom: 13cqw;
-    width: 25cqw;
-    aspect-ratio: 1;
-    display: grid;
-    place-content: center;
-    justify-items: center;
-    gap: 1.6cqw;
-    border-radius: 50%;
-    background: var(--laranja);
-    color: var(--fundo);
-    outline: 0.5cqw solid var(--laranja);
-    outline-offset: 1.2cqw;
-    font-size: 2.6cqw;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    rotate: -12deg;
+    position: absolute; right: 9cqw; bottom: 13cqw; width: 25cqw; aspect-ratio: 1;
+    display: grid; place-content: center; justify-items: center; gap: 1.6cqw;
+    border-radius: 50%; background: var(--laranja); color: var(--sobre-laranja);
+    outline: 0.5cqw solid var(--laranja); outline-offset: 1.2cqw;
+    font-size: 2.6cqw; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; rotate: -12deg;
   }
   .selo-check { width: 7cqw; height: 3.6cqw; border-left: 1.1cqw solid; border-bottom: 1.1cqw solid; rotate: -45deg; }
 
-  /* Notebook + celular com o site da Lincera (09) */
   .notebook { position: relative; width: 80cqw; translate: -6cqw -6cqw; }
-  .notebook-tela { aspect-ratio: 16 / 10; padding: 1.6cqw; background: var(--rodape); border: 0.5cqw solid var(--linha); border-radius: 2.2cqw 2.2cqw 0 0; }
-  .notebook-base { position: relative; width: 112%; height: 2.6cqw; margin-left: -6%; background: var(--linha); border-radius: 0 0 2cqw 2cqw; }
-  .notebook-base::after { content: ""; position: absolute; top: 0; left: 50%; width: 14cqw; height: 0.9cqw; translate: -50% 0; border-radius: 0 0 1cqw 1cqw; background: var(--rodape); }
-  .mini-site {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    padding: 2.4cqw 3cqw;
-    background: var(--fundo) url("assets/fundos/topo-celular.jpg") center / cover no-repeat;
-  }
-  .mini-site::before { content: ""; position: absolute; inset: 0; background: rgb(8 11 20 / 0.55); } /* véu liso, como no fundo do site */
-  .mini-site > * { position: relative; }
+  .notebook-tela { aspect-ratio: 16 / 10; padding: 1.6cqw; background: var(--superficie); border: 0.5cqw solid var(--borda); border-radius: 2.2cqw 2.2cqw 0 0; }
+  .notebook-base { position: relative; width: 112%; height: 2.6cqw; margin-left: -6%; background: var(--borda); border-radius: 0 0 2cqw 2cqw; }
+  .mini-site { height: 100%; display: flex; flex-direction: column; padding: 2.4cqw 3cqw; background: #0A0E19; }
   .mini-topo { display: flex; justify-content: space-between; align-items: center; }
   .mini-marca { display: inline-flex; align-items: center; gap: 0.8cqw; font-size: 1.8cqw; font-weight: 500; text-transform: uppercase; color: var(--branco); }
-  .mini-marca img { width: 1.8cqw; height: auto; }
+  .mini-marca img { height: 2.6cqw; width: auto; }
   .mini-botao { width: 9cqw; height: 2.4cqw; border-radius: 0.7cqw; background: var(--laranja); }
-  .mini-titulo { margin-top: auto !important; font-size: 5.6cqw; font-weight: 500; line-height: 0.9; letter-spacing: -0.05em; text-transform: uppercase; color: var(--branco); }
+  .mini-corpo { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .mini-titulo { font-size: 3.6cqw; font-weight: 500; line-height: 0.95; letter-spacing: -0.04em; text-transform: uppercase; color: var(--branco); }
   .mini-titulo em { font-style: normal; color: var(--laranja); }
-  .mini-apoio { display: block; width: 45%; height: 0.9cqw; margin: 2cqw 0 1cqw; border-radius: 0.5cqw; background: var(--cinza-rotulo); }
-  .celular--pequeno { position: absolute; right: 8cqw; bottom: 14cqw; width: 24cqw; padding: 1cqw; border-width: 0.4cqw; border-radius: 4cqw; }
-  .celular--pequeno::before { top: 1.8cqw; width: 7cqw; height: 1.4cqw; border-radius: 1cqw; }
+  .mini-fone { width: 9cqw; aspect-ratio: 9 / 18; border: 0.4cqw solid var(--borda); border-radius: 1.6cqw; background: var(--superficie); }
+  .celular--pequeno { position: absolute; right: 8cqw; bottom: 14cqw; width: 24cqw; padding: 1cqw; border-radius: 4cqw; }
   .celular--pequeno .celular-tela { border-radius: 3cqw; }
   .celular--pequeno .mini-site { padding: 5cqw 2cqw 2.4cqw; }
-  .celular--pequeno .mini-titulo { font-size: 3.6cqw; }
-  .celular--pequeno .mini-botao { width: 6cqw; height: 1.8cqw; border-radius: 0.5cqw; }
-  .celular--pequeno .mini-marca img { width: 2.2cqw; }
-  .celular--pequeno .mini-apoio { width: 60%; height: 0.7cqw; margin-top: 1.4cqw; }
+  .celular--pequeno .mini-titulo { font-size: 3cqw; }
 
-  /* 6. Por que a Lincera */
-  .porque-topo { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
-  .porque-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.25rem, 2.5vw, 2.5rem); }
+  /* ------------------------------------------------ 6. Sobre */
+  .sobre-grade { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .retrato { position: relative; }
+  .retrato::before { /* luz laranja atrás do retrato */
+    content: ""; position: absolute; inset: 10% -8% -6% 12%;
+    background: radial-gradient(closest-side, rgb(245 160 60 / 0.22), transparent);
+    filter: blur(20px); pointer-events: none;
+  }
+  .retrato-quadro { position: relative; overflow: hidden; border-radius: var(--raio); border: 1px solid var(--borda); }
+  .retrato-quadro::after { /* filete de luz na borda direita, como no fundo antigo */
+    content: ""; position: absolute; top: 12%; bottom: 12%; right: 0; width: 2px; background: var(--laranja); box-shadow: 0 0 18px 2px rgb(245 160 60 / 0.55);
+  }
+  .retrato img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .7s var(--curva); }
+  .retrato:hover img { transform: scale(1.02); }
+  .sobre-texto { display: grid; gap: 1.5rem; justify-items: start; }
+  .sobre-nome { display: grid; gap: 0.35rem; }
+  .sobre-nome .manchete { font-size: clamp(1.75rem, 2.6vw, 2.5rem); }
+  .sobre-texto .corpo { display: grid; gap: 1rem; max-width: 38rem; color: var(--texto-2); }
+  .sobre-texto blockquote { margin: 0; padding-left: 1.25rem; border-left: 2px solid var(--laranja); max-width: 34rem; }
+  .editar { padding: 0 0.3em; border-radius: 4px; outline: 1px dashed rgb(245 160 60 / 0.7); color: var(--laranja); font-style: normal; font-family: var(--sans); font-size: 0.8em; letter-spacing: 0; }
+
+  /* ------------------------------------------------ 7. Por que a Lincera */
+  .porque-grade { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.25rem, 2.5vw, 2.5rem); }
   .porque-item { display: grid; gap: 0.9rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid var(--linha); }
 
-  /* 8. Faixa de serviços: transparente, as palavras passam sobre o fundo 3D */
-  .faixa {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    aspect-ratio: 16 / 9;
-  }
-  .faixa-linhas { width: 100%; }
-  .faixa-linha { overflow: hidden; }
-  .trilho { display: flex; width: max-content; animation: corre var(--dur, 80s) linear infinite; }
-  .faixa-linha:nth-child(even) .trilho { animation-direction: reverse; }
-  .grupo {
-    flex: none;
-    display: flex;
-    align-items: center;
-    font-size: clamp(2.25rem, 6.5vw, 6.5rem);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.045em;
-    text-transform: uppercase;
-    color: var(--branco);
-  }
-  .grupo span { flex: none; padding: 0 0.3em; white-space: nowrap; }
-  /* Separador entre serviços: bolinha laranja pequena, na altura do meio das letras */
-  .ponto { flex: none; width: 0.13em; height: 0.13em; border-radius: 50%; background: var(--laranja); }
-  @keyframes corre { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* 8. Perguntas frequentes */
-  .duvidas-topo { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
-  .duvidas-topo a { color: var(--branco); border-bottom: 1px solid currentColor; transition: color .2s; }
-  .duvidas-topo a:hover { color: var(--azul); }
+  /* ------------------------------------------------ 8. Perguntas frequentes */
+  .duvidas-grade { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .duvidas-grade .topo-secao { position: sticky; top: calc(var(--topo) + 2rem); margin-bottom: 0; }
   .perguntas { border-top: 1px solid var(--linha); }
   .pergunta { border-bottom: 1px solid var(--linha); }
-  .pergunta summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    cursor: pointer;
-    list-style: none;
-  }
+  .pergunta summary { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; padding: 1.5rem 0; cursor: pointer; list-style: none; }
   .pergunta summary::-webkit-details-marker { display: none; }
-  .pergunta summary .mais { flex: none; font-size: 1.75rem; font-weight: 400; line-height: 1; transition: transform .2s; }
-  .pergunta[open] summary .mais { transform: rotate(45deg); }
+  .pergunta summary .mais { flex: none; font-size: 1.75rem; line-height: 1; transition: transform .25s var(--curva), color .2s; }
+  .pergunta[open] summary .mais { transform: rotate(45deg); color: var(--laranja); }
   .pergunta summary:hover .manchete { color: var(--azul); }
-  .pergunta .resposta { margin: 0; max-width: 46rem; padding: 0 0 1.75rem; color: var(--cinza-rotulo); }
+  .pergunta .resposta { max-width: 44rem; padding: 0 0 1.75rem; color: var(--texto-2); }
 
-  /* 10. Chamada final */
-  .chamada { display: grid; gap: 1.5rem; justify-items: start; padding-top: calc(var(--respiro) * 0.7); }
-  .chamada .apoio { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); }
-  .chamada .pilula--principal { margin-top: 0.75rem; }
-  .pilula--grande { height: 3rem; padding: 0 1.4rem; font-size: 1rem; }
-  /* Uma chamada laranja por tela: o botão do cabeçalho some enquanto a chamada final está à vista */
-  .cabecalho .pilula--principal { transition: background-color .2s, color .2s, border-color .2s, opacity .25s, visibility .25s; }
-  .cabecalho.chamada-visivel .pilula--principal,
-  .cabecalho.chamada-visivel .nota { opacity: 0; visibility: hidden; }
+  /* ------------------------------------------------ 9. Chamada final */
+  .chamada { position: relative; overflow: hidden; border-top: 1px solid var(--linha); }
+  .chamada-grade { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .chamada-texto { display: grid; gap: 1.5rem; justify-items: start; }
+  .chamada .titulo { font-size: clamp(2.25rem, 5vw, 5rem); }
+  .palco--lince { height: min(64svh, 34rem); }
+  .palco--lince::before { inset: 14% 10% 6% 10%; background: radial-gradient(closest-side, rgb(245 160 60 / 0.24), rgb(245 160 60 / 0.05) 60%, transparent); }
+  .palco--lince .reserva img { width: min(60%, 18rem); }
 
-  /* 11. Rodapé */
-  .rodape { background: var(--rodape); padding: var(--respiro) var(--margem) 0; overflow: hidden; }
-  .rodape-colunas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+  /* ------------------------------------------------ 10. Rodapé */
+  .rodape { background: var(--rodape); padding-top: var(--respiro); overflow: hidden; }
+  .rodape-colunas { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)); gap: 3rem; }
+  .rodape-marca { display: grid; gap: 1.25rem; align-content: start; }
+  .rodape-marca .marca img { height: 40px; width: auto; }
   .rodape-col { display: grid; gap: 1rem; align-content: start; }
-  .rodape-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
-  .rodape-col a {
-    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.045em;
-    text-transform: uppercase;
-    color: var(--cinza-link);
-    transition: color .2s;
-  }
+  .rodape-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.2rem; }
+  .rodape-col a { display: inline-block; padding: 0.15rem 0; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; text-transform: uppercase; color: #868686; }
   .rodape-col a:hover { color: var(--azul); }
-  .rodape-linha {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: var(--respiro);
-    padding: 1rem 0;
-    border-top: 1px solid var(--linha);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--cinza-link);
-  }
-  .creditos { text-transform: none; font-weight: 400; letter-spacing: 0; }
-  .nome-gigante {
-    margin: 0 calc(var(--margem) * -1);
-    font-size: 25vw;
-    font-weight: 500;
-    line-height: 0.78;
-    letter-spacing: -0.06em;
-    text-align: center;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--branco);
-    user-select: none;
-  }
+  .rodape-linha { display: flex; justify-content: space-between; gap: 1rem; margin-top: var(--respiro); padding: 1rem 0; border-top: 1px solid var(--linha); font-size: 0.75rem; color: #868686; }
+  .nome-gigante { margin: 0; font-size: 25vw; font-weight: 500; line-height: 0.78; letter-spacing: -0.06em; text-align: center; text-transform: uppercase; white-space: nowrap; user-select: none; }
 
-  /* Celular */
-  @media (max-width: 800px) {
-    .nav .pilula:not(.pilula--principal), .nav .nota { display: none; }
-    .item { grid-template-columns: 2.25rem 1fr; padding: 0.9rem 0; border-top: 1px solid var(--linha); }
-    .item .num { padding-bottom: 0.3em; }
-    .item .desc { grid-column: 2; opacity: 1; margin-top: 0.5rem; font-size: 0.9375rem; }
+  /* ------------------------------------------------ Telas menores */
+  @media (max-width: 1000px) {
+    .abertura .wrap, .servicos-grade, .projeto-grade, .sobre-grade, .duvidas-grade, .chamada-grade { grid-template-columns: 1fr; }
+    .abertura { min-height: auto; }
+    .palco { height: min(64svh, 34rem); }
+    .vitrine { display: none; }
+    .item { grid-template-columns: 2.5rem 1fr; row-gap: 0.6rem; color: var(--branco); font-size: clamp(1.375rem, 5.4vw, 2rem); }
+    .item .nome em { color: var(--laranja); }
+    .item .desc { display: block; grid-column: 2; font: 400 1rem/1.5 var(--sans); letter-spacing: 0; text-transform: none; color: var(--texto-2); }
+    .lista-acao { display: flex; margin-top: 2rem; }
+    .duvidas-grade .topo-secao { position: static; }
+    .projeto-telas { order: -1; }
+    .sobre-grade .retrato { max-width: 30rem; }
+    .porque-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.5rem; }
+    .cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 0.25rem; }
+    .cards::-webkit-scrollbar { display: none; }
+    .card { scroll-snap-align: start; }
+    .rodape-colunas { grid-template-columns: 1fr 1fr; }
+    .rodape-marca { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1001px) { .lista-acao { display: none; } }
+  @media (max-width: 900px) {
+    .nav .pilula:not(.pilula--principal):not(.menu-botao) { display: none; }
+    .menu-botao { display: inline-flex; }
+  }
+  @media (max-width: 600px) {
+    :root { --topo: 4rem; }
+    .marca img { height: 30px; }
+    .marca { font-size: 1.125rem; }
+    .nav .pilula--principal { display: none; }
+    .abertura h1 { font-size: clamp(2rem, 9.4vw, 2.75rem); }
+    .abertura h1 .linha { white-space: normal; }
+    .acoes { width: 100%; display: grid; }
+    .acoes .pilula { width: 100%; }
+    .fatos { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .palco { height: 30rem; }
     .titulo-espalhado { flex-direction: column; }
-    .cards { grid-auto-columns: 78%; }
-    .porque-grade { grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
-    .atendimento-grade { grid-template-columns: 1fr; }
-    .faixa { aspect-ratio: auto; padding: var(--respiro) 0; } /* sem imagem, a altura acompanha as palavras */
+    .porque-grade { grid-template-columns: 1fr; }
     .rodape-colunas { grid-template-columns: 1fr; }
     .rodape-linha { flex-direction: column; }
-  }
-  @media (max-width: 420px) {
-    .porque-grade, .destaques { grid-template-columns: 1fr; }
-  }
-  /* Telas muito estreitas: manifesto acompanha a largura e o cabeçalho fica só com o lince */
-  @media (max-width: 370px) {
-    .item { font-size: 8.5vw; }
-    .marca span { display: none; }
+    .chamada-texto .pilula { width: 100%; }
+    .projeto-telas { padding-bottom: 18%; }
+    .tela-site--frente { width: 56%; right: -2%; }
   }
 
   /* Menos movimento: só o estado final — design.md §6 */
@@ -551,325 +592,457 @@
 </style>
 </head>
 <body>
-
-<!-- Fundo 3D com rolagem (Three.js local em assets/js/) -->
-<div class="fundo" aria-hidden="true"></div>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <!-- 1. Cabeçalho -->
-<header class="cabecalho" id="topo">
-  <a href="#inicio" class="marca caixa-alta" aria-label="Lincera, voltar ao início">
-    <img src="assets/logo.png" alt="" width="26" height="33">
-    <span>Lincera</span>
-  </a>
-  <nav class="nav" aria-label="Principal">
-    <a class="pilula" href="#servicos">Serviços</a>
-    <a class="pilula" href="#como-funciona">Como funciona</a>
-    <a class="pilula" href="#duvidas">Dúvidas</a>
-    <span class="nota rotulo">Proposta sem compromisso</span>
-    <a class="pilula pilula--principal" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Solicitar proposta</a>
-  </nav>
+<header class="cabecalho">
+  <div class="wrap">
+    <a href="#inicio" class="marca" aria-label="Lincera, voltar ao início">
+      <picture><source type="image/webp" srcset="assets/lince/lince-96.webp"><img src="assets/lince/lince-96.png" alt="" width="75" height="96"></picture>
+      <span>Lincera</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a class="pilula" href="#servicos">Serviços</a>
+      <a class="pilula" href="#projeto">Projeto</a>
+      <a class="pilula" href="#sobre">Sobre</a>
+      <a class="pilula" href="#duvidas">Dúvidas</a>
+      <span class="nota" data-some-com-chamada>Proposta sem compromisso</span>
+      <a class="pilula pilula--principal" data-some-com-chamada href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Solicitar proposta</a>
+      <button class="pilula menu-botao" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </div>
 </header>
 
-<main>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu do celular">
+    <ul>
+      <li><a href="#servicos">Serviços <span aria-hidden="true">→</span></a></li>
+      <li><a href="#projeto">Projeto <span aria-hidden="true">→</span></a></li>
+      <li><a href="#como-funciona">Como funciona <span aria-hidden="true">→</span></a></li>
+      <li><a href="#sobre">Sobre <span aria-hidden="true">→</span></a></li>
+      <li><a href="#duvidas">Dúvidas <span aria-hidden="true">→</span></a></li>
+    </ul>
+  </nav>
+  <a class="pilula pilula--principal pilula--grande" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Falar no WhatsApp</a>
+</div>
 
-  <!-- 2. Abertura em manifesto -->
-  <section class="manifesto" id="inicio">
-    <div class="manifesto-texto">
-      <h1>
-        <span class="linha"><span style="--i:0">Vender</span></span>
-        <span class="linha"><span style="--i:1" class="destaque">Mais</span></span>
-        <span class="linha"><span style="--i:2">Sem</span></span>
-        <span class="linha"><span style="--i:3">Complicar</span></span>
-      </h1>
-      <p class="apoio">Sites, atendimento automático e tráfego pago para o seu negócio crescer.</p>
-    </div>
-  </section>
+<main id="conteudo">
 
-  <!-- 3. Declaração -->
-  <section class="secao declaracao" aria-label="Sobre a Lincera">
-    <p class="titulo"><span>Tecnologia de empresa grande.</span> <span>Atendimento de parceiro.</span></p>
-  </section>
-
-  <!-- 4. Índice numerado — serviços -->
-  <section class="secao indice" id="servicos" aria-labelledby="titulo-servicos">
-    <h2 id="titulo-servicos" class="rotulo" style="margin:0 0 2rem">Serviços</h2>
-    <ol class="indice-lista">
-      <li class="item ativo"><span class="num">01</span><span class="nome">Atendimento <em>automático</em> no WhatsApp</span><span class="desc">Responda clientes na hora, a qualquer horário, sem perder nenhuma venda.</span></li>
-      <li class="item"><span class="num">02</span><span class="nome"><em>Sites</em> profissionais</span><span class="desc">Seu negócio com uma vitrine bonita, rápida e pronta para converter visitas em clientes.</span></li>
-      <li class="item"><span class="num">03</span><span class="nome">Apli<em>cativ</em>os</span><span class="desc">Apps sob medida para o seu cliente comprar, agendar e acompanhar pelo celular.</span></li>
-      <li class="item"><span class="num">04</span><span class="nome">Tráfego <em>pago</em></span><span class="desc">Anúncios que colocam a sua oferta na frente de quem está pronto para comprar.</span></li>
-      <li class="item"><span class="num">05</span><span class="nome"><em>Vídeos</em> e artes</span><span class="desc">Conteúdo visual forte que chama atenção e deixa a sua marca com cara de grande.</span></li>
-      <li class="item"><span class="num">06</span><span class="nome"><em>Automações</em> para empresas</span><span class="desc">Tarefas repetitivas rodando sozinhas para a sua equipe ganhar tempo e foco.</span></li>
-    </ol>
-    <div class="indice-acoes">
-      <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">
-        <span class="pilula">Chamar no WhatsApp</span><span class="pilula" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 5. Exemplo de atendimento (conversa simulada) + destaques -->
-  <section class="secao atendimento" id="exemplo" aria-labelledby="titulo-exemplo">
-    <h2 id="titulo-exemplo" class="rotulo" style="margin:0 0 2rem">Exemplo de atendimento</h2>
-    <div class="atendimento-grade">
-      <div class="conversa" role="log" aria-label="Exemplo de conversa de atendimento no WhatsApp: cliente agenda um horário para o dia seguinte">
-        <div class="conversa-topo"><span class="online" aria-hidden="true"></span><span>Atendimento automático</span><span class="rotulo">Exemplo</span></div>
-        <div class="mensagens">
-          <p class="msg msg--cliente">Oi! Queria agendar um horário para amanhã.</p>
-          <p class="msg msg--atendimento">Olá! Claro. Amanhã tenho horários às 10h, 14h e 16h. Qual fica melhor para você?</p>
-          <p class="msg msg--cliente">14h, por favor.</p>
-          <p class="msg msg--atendimento">Pronto! Seu horário ficou marcado para amanhã às 14h. Até lá!</p>
-          <p class="msg msg--cliente">Obrigado!</p>
+  <!-- 2. Abertura: o que a Lincera faz e para quem + celular 3D com a conversa de exemplo -->
+  <section class="abertura" id="inicio" aria-labelledby="titulo-inicio">
+    <div class="wrap">
+      <div class="abertura-texto">
+        <span class="rotulo rotulo--laranja entra" style="--d:0s">Vender mais sem complicar</span>
+        <h1 id="titulo-inicio">
+          <span class="linha"><span style="--i:0">Atendimento no WhatsApp,</span></span>
+          <span class="linha"><span style="--i:1">sites e anúncios</span></span>
+          <span class="linha"><span style="--i:2">para <em>pequenos negócios</em></span></span>
+        </h1>
+        <p class="apoio apoio--grande entra" style="--d:.55s">A Lincera responde os seus clientes no WhatsApp, cria o seu site e coloca a sua oferta na frente de quem quer comprar.</p>
+        <div class="acoes entra" style="--d:.7s">
+          <a class="pilula pilula--principal pilula--grande" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="pilula pilula--grande" href="#servicos">Ver serviços</a>
         </div>
-        <p class="digitando" aria-hidden="true">Atendimento digitando…</p>
+        <div class="fatos entra" style="--d:.85s">
+          <div class="fato"><span class="rotulo">Atendimento 24h</span><p class="manchete">Seu cliente atendido a qualquer hora.</p></div>
+          <div class="fato"><span class="rotulo">Tudo em um só lugar</span><p class="manchete">Site, anúncios, atendimento e automação.</p></div>
+        </div>
       </div>
-      <div class="destaques">
-        <div class="destaque-item"><span class="rotulo">Atendimento 24h</span><p class="manchete">Seu cliente atendido a qualquer hora.</p></div>
-        <div class="destaque-item"><span class="rotulo">Entrega rápida</span><p class="manchete">Projeto no ar sem enrolação.</p></div>
-        <div class="destaque-item"><span class="rotulo">Conexão com o cliente</span><p class="manchete">Você fala direto com quem faz.</p></div>
-        <div class="destaque-item"><span class="rotulo">Foco em resultado</span><p class="manchete">Tecnologia para vender mais.</p></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 6. Cards — Como funciona (seção clara) -->
-  <section class="secao claro" id="como-funciona" data-tema="claro" aria-labelledby="titulo-como">
-    <div class="cards-topo">
-      <h2 id="titulo-como" class="titulo titulo-espalhado"><span>Conversa</span><span>Proposta</span><span>Entrega</span></h2>
-      <p class="apoio">Você não precisa entender de tecnologia. A gente cuida de tudo.</p>
-    </div>
-    <div class="cards">
-      <article class="card">
-        <!-- imagem-07: mockup em código — conversa de exemplo dentro de um celular -->
-        <div class="mock mock--conversa" role="img" aria-label="Ilustração: celular mostrando um exemplo de conversa de agendamento no WhatsApp">
-          <div class="celular">
+      <div class="palco" data-cena="celular">
+        <!-- Reserva em HTML: aparece sem WebGL e é o que o leitor de tela lê. Com o 3D pronto, fica só para leitores de tela. -->
+        <div class="reserva">
+          <div class="celular" role="group" aria-label="Exemplo de conversa de atendimento automático no WhatsApp">
             <div class="celular-tela">
-              <div class="celular-topo"><span class="online"></span><span>Atendimento automático</span></div>
+              <div class="celular-topo"><span class="ponto-online" aria-hidden="true"></span><span>Atendimento automático · Exemplo</span></div>
               <div class="celular-msgs">
                 <p class="bolha bolha--cliente">Oi! Queria agendar um horário para amanhã.</p>
                 <p class="bolha bolha--atendimento">Olá! Claro. Amanhã tenho horários às 10h, 14h e 16h. Qual fica melhor para você?</p>
                 <p class="bolha bolha--cliente">14h, por favor.</p>
                 <p class="bolha bolha--atendimento">Pronto! Seu horário ficou marcado para amanhã às 14h. Até lá!</p>
+                <p class="bolha bolha--cliente">Obrigado!</p>
               </div>
             </div>
           </div>
         </div>
-        <span class="rotulo">01 — Conversa</span>
-        <p class="manchete">Entendemos o seu negócio, o seu público e o que você quer alcançar.</p>
-      </article>
-      <article class="card">
-        <!-- imagem-08: mockup em código — folha de proposta com a marca e selo de aprovado, sem dados reais -->
-        <div class="mock mock--proposta" role="img" aria-label="Ilustração: folha de proposta da Lincera com um selo de aprovado">
-          <div class="folha">
-            <div class="folha-topo">
-              <span class="folha-marca"><img src="assets/logo.png" alt="" width="20" height="26">Lincera</span>
-              <span class="folha-tipo">Proposta</span>
-            </div>
-            <span class="barra barra--titulo"></span>
-            <span class="barra" style="--l:92%"></span>
-            <span class="barra" style="--l:84%"></span>
-            <span class="barra" style="--l:60%"></span>
-            <span class="folha-espaco"></span>
-            <span class="barra barra--escura" style="--l:38%"></span>
-            <span class="barra" style="--l:88%"></span>
-            <span class="barra" style="--l:72%"></span>
-            <span class="folha-espaco"></span>
-            <span class="barra barra--escura" style="--l:30%"></span>
-            <span class="barra" style="--l:80%"></span>
-            <span class="barra" style="--l:46%"></span>
-            <span class="folha-assinatura"></span>
-          </div>
-          <div class="selo"><span class="selo-check" aria-hidden="true"></span><span>Aprovado</span></div>
-        </div>
-        <span class="rotulo">02 — Proposta</span>
-        <p class="manchete">Você recebe um plano claro, com prazo e valor combinados antes de começar.</p>
-      </article>
-      <article class="card">
-        <!-- imagem-09: mockup em código — o próprio site da Lincera num notebook e num celular -->
-        <div class="mock mock--entrega" role="img" aria-label="Ilustração: o site da Lincera aberto num notebook e num celular">
-          <div class="notebook">
-            <div class="notebook-tela">
-              <div class="mini-site">
-                <div class="mini-topo"><span class="mini-marca"><img src="assets/logo.png" alt="" width="10" height="13">Lincera</span><span class="mini-botao"></span></div>
-                <p class="mini-titulo">Vender<br><em>Mais</em><br>Sem<br>Complicar</p>
-                <span class="mini-apoio"></span>
-              </div>
-            </div>
-            <div class="notebook-base"></div>
-          </div>
-          <div class="celular celular--pequeno">
-            <div class="celular-tela">
-              <div class="mini-site">
-                <div class="mini-topo"><span class="mini-marca"><img src="assets/logo.png" alt="" width="8" height="10"></span><span class="mini-botao"></span></div>
-                <p class="mini-titulo">Vender<br><em>Mais</em><br>Sem<br>Complicar</p>
-                <span class="mini-apoio"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <span class="rotulo">03 — Entrega e acompanhamento</span>
-        <p class="manchete">Colocamos tudo no ar e seguimos ao seu lado para ajustar e evoluir.</p>
-      </article>
-    </div>
-    <div class="cards-acoes">
-      <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">
-        <span class="pilula">Quero conversar</span><span class="pilula" aria-hidden="true">→</span>
-      </a>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Por que a Lincera -->
+  <!-- 3. Serviços: índice numerado + vitrine com um desenho de cada serviço -->
+  <section class="secao" id="servicos" aria-labelledby="titulo-servicos">
+    <div class="wrap">
+      <div class="topo-secao">
+        <span class="rotulo">Serviços</span>
+        <h2 id="titulo-servicos" class="titulo">Seis serviços, um contato só</h2>
+      </div>
+      <div class="servicos-grade">
+        <div>
+          <ol class="lista-servicos">
+            <li><button class="item ativo" type="button" data-servico="0" aria-controls="vitrine" aria-expanded="true"><span class="num">01</span><span class="nome">Atendimento <em>automático</em> no WhatsApp</span><span class="desc">Responda clientes na hora, a qualquer horário, sem perder nenhuma venda.</span></button></li>
+            <li><button class="item" type="button" data-servico="1" aria-controls="vitrine" aria-expanded="false"><span class="num">02</span><span class="nome"><em>Sites</em> profissionais</span><span class="desc">Seu negócio com uma vitrine bonita, rápida e pronta para converter visitas em clientes.</span></button></li>
+            <li><button class="item" type="button" data-servico="2" aria-controls="vitrine" aria-expanded="false"><span class="num">03</span><span class="nome"><em>Aplicativos</em></span><span class="desc">Apps sob medida para o seu cliente comprar, agendar e acompanhar pelo celular.</span></button></li>
+            <li><button class="item" type="button" data-servico="3" aria-controls="vitrine" aria-expanded="false"><span class="num">04</span><span class="nome">Tráfego <em>pago</em></span><span class="desc">Anúncios que colocam a sua oferta na frente de quem está pronto para comprar.</span></button></li>
+            <li><button class="item" type="button" data-servico="4" aria-controls="vitrine" aria-expanded="false"><span class="num">05</span><span class="nome"><em>Vídeos</em> e artes</span><span class="desc">Conteúdo visual forte que chama atenção e deixa a sua marca com cara de grande.</span></button></li>
+            <li><button class="item" type="button" data-servico="5" aria-controls="vitrine" aria-expanded="false"><span class="num">06</span><span class="nome"><em>Automações</em> para empresas</span><span class="desc">Tarefas repetitivas rodando sozinhas para a sua equipe ganhar tempo e foco.</span></button></li>
+          </ol>
+          <div class="lista-acao">
+            <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener"><span class="pilula">Pedir proposta</span><span class="pilula" aria-hidden="true"><span>→</span></span></a>
+          </div>
+        </div>
+
+        <div class="vitrine" id="vitrine" aria-live="polite">
+          <div class="vitrine-quadro" aria-hidden="true">
+            <!-- 01 Atendimento: mensagens respondidas ao longo do dia -->
+            <div class="vis ativo">
+              <div class="v-lista">
+                <span class="mini-rotulo">Mensagens de hoje</span>
+                <div class="v-linha"><b>07:12</b><span>Vocês atendem no sábado?</span><span class="ok">Respondida</span></div>
+                <div class="v-linha"><b>12:48</b><span>Qual o valor do serviço?</span><span class="ok">Respondida</span></div>
+                <div class="v-linha"><b>19:30</b><span>Tem horário amanhã?</span><span class="ok">Respondida</span></div>
+                <div class="v-linha"><b>23:41</b><span>Ainda dá para pedir hoje?</span><span class="ok">Respondida</span></div>
+              </div>
+            </div>
+            <!-- 02 Sites -->
+            <div class="vis">
+              <div class="v-navegador">
+                <div class="v-barra"><i></i><i></i><i></i><span></span></div>
+                <div class="v-pagina">
+                  <div class="bloco"><span class="barra barra--forte" style="--l:92%"></span><span class="barra barra--forte" style="--l:70%"></span><span class="barra" style="--l:86%"></span><span class="barra" style="--l:62%"></span><span class="barra barra--botao"></span></div>
+                  <div class="v-imagem"></div>
+                </div>
+                <div class="v-cards"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <!-- 03 Aplicativos -->
+            <div class="vis">
+              <div class="v-app">
+                <div class="v-app-tela">
+                  <strong>Agenda</strong>
+                  <div class="v-dias"><span>Seg</span><span class="sel">Ter</span><span>Qua</span><span>Qui</span></div>
+                  <div class="v-horas"><span>10:00</span><span class="sel">14:00</span><span>16:00</span></div>
+                  <span class="barra barra--botao"></span>
+                </div>
+              </div>
+            </div>
+            <!-- 04 Tráfego pago -->
+            <div class="vis">
+              <div class="v-post">
+                <div class="v-post-topo"><i></i><div><span class="barra" style="--l:60%"></span><small>Patrocinado</small></div></div>
+                <div class="v-post-imagem"><span></span></div>
+                <div class="v-post-acao"><span class="barra" style="--l:40%"></span><b>Saiba mais</b></div>
+              </div>
+            </div>
+            <!-- 05 Vídeos e artes -->
+            <div class="vis">
+              <div class="v-midia">
+                <div class="v-video"></div>
+                <div class="v-artes">
+                  <div class="v-arte"><span></span></div>
+                  <div class="v-arte"><span><span class="barra barra--forte"></span><span class="barra" style="--l:70%"></span></span></div>
+                </div>
+              </div>
+            </div>
+            <!-- 06 Automações: um gatilho, três tarefas em paralelo -->
+            <div class="vis">
+              <div class="v-fluxo">
+                <div class="entrada"><span class="no">Novo pedido</span><span class="cabo"></span></div>
+                <span class="no no--centro"></span>
+                <div class="saidas">
+                  <div class="saida"><span class="cabo" style="--atraso:.2s"></span><span class="no">Planilha</span></div>
+                  <div class="saida"><span class="cabo" style="--atraso:.9s"></span><span class="no">Aviso no WhatsApp</span></div>
+                  <div class="saida"><span class="cabo" style="--atraso:1.6s"></span><span class="no">E-mail</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="vitrine-texto">
+            <p class="manchete" data-vitrine-texto>Responda clientes na hora, a qualquer horário, sem perder nenhuma venda.</p>
+            <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener"><span class="pilula">Pedir proposta</span><span class="pilula" aria-hidden="true"><span>→</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Projeto: JA imports (autorizado em 2026-11-26) -->
+  <section class="secao projeto" id="projeto" aria-labelledby="titulo-projeto">
+    <div class="wrap projeto-grade">
+      <div class="projeto-texto">
+        <span class="rotulo">Projeto</span>
+        <h2 id="titulo-projeto" class="titulo">JA imports</h2>
+        <p class="manchete">Site da loja de camisas masculinas importadas de Santo Amaro da Imperatriz, SC.</p>
+        <ul class="feito">
+          <li><span>01</span><span>Catálogo das linhas Oversize e Soft, com preço e tamanhos</span></li>
+          <li><span>02</span><span>Pedido fechado direto no WhatsApp da loja</span></li>
+          <li><span>03</span><span>Vitrine 3D das peças e vídeo dos bastidores</span></li>
+        </ul>
+        <a class="seta" href="https://jacksondesouzaalves23-commits.github.io/ja-imports/" target="_blank" rel="noopener"><span class="pilula">Ver o site</span><span class="pilula" aria-hidden="true"><span>↗</span></span></a>
+      </div>
+      <div class="projeto-telas">
+        <a class="tela-site" href="https://jacksondesouzaalves23-commits.github.io/ja-imports/" target="_blank" rel="noopener" style="display:block">
+          <div class="v-barra" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+          <picture>
+            <source type="image/webp" srcset="assets/projetos/ja-imports-inicio-440.webp 440w, assets/projetos/ja-imports-inicio-880.webp 880w, assets/projetos/ja-imports-inicio-1440.webp 1440w" sizes="(max-width: 1000px) 92vw, 760px">
+            <img src="assets/projetos/ja-imports-inicio-1440.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Página inicial do site da JA imports, com fotos das camisas e os botões Ver Oversize e Ver Soft">
+          </picture>
+        </a>
+        <a class="tela-site tela-site--frente" href="https://jacksondesouzaalves23-commits.github.io/ja-imports/oversize.html" target="_blank" rel="noopener" style="display:block">
+          <div class="v-barra" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+          <picture>
+            <source type="image/webp" srcset="assets/projetos/ja-imports-oversize-440.webp 440w, assets/projetos/ja-imports-oversize-880.webp 880w" sizes="(max-width: 1000px) 52vw, 370px">
+            <img src="assets/projetos/ja-imports-oversize-880.jpg" width="880" height="550" loading="lazy" decoding="async" alt="Página da coleção Oversize no site da JA imports, com preço e tamanhos">
+          </picture>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Como funciona (seção clara) -->
+  <section class="secao claro" id="como-funciona" aria-labelledby="titulo-como">
+    <div class="wrap">
+      <div class="topo-secao">
+        <h2 id="titulo-como" class="titulo titulo-espalhado"><span>Conversa</span><span>Proposta</span><span>Entrega</span></h2>
+        <p class="apoio">Você não precisa entender de tecnologia. A Lincera cuida de tudo.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="mock" role="img" aria-label="Celular com a mensagem Olá! Vim pelo site da Lincera e a resposta sendo digitada">
+            <div class="celular">
+              <div class="celular-tela">
+                <div class="celular-topo"><span class="ponto-online" aria-hidden="true"></span><span>Lincera</span></div>
+                <div class="celular-msgs">
+                  <p class="bolha bolha--cliente">Olá! Vim pelo site da Lincera</p>
+                  <p class="bolha bolha--atendimento digitando"><i></i><i></i><i></i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="rotulo">01 — Conversa</span>
+          <p class="manchete">Uma conversa para entender o seu negócio, o seu público e o que você quer alcançar.</p>
+        </article>
+        <article class="card">
+          <div class="mock" role="img" aria-label="Folha de proposta da Lincera com um selo de aprovado">
+            <div class="folha">
+              <div class="folha-topo"><span class="folha-marca"><img src="assets/lince/lince-96.png" alt="" width="75" height="96" loading="lazy">Lincera</span><span class="folha-tipo">Proposta</span></div>
+              <span class="barra barra--titulo"></span>
+              <span class="barra" style="--l:92%"></span>
+              <span class="barra" style="--l:84%"></span>
+              <span class="barra" style="--l:60%"></span>
+              <span class="folha-espaco"></span>
+              <span class="barra barra--escura" style="--l:38%"></span>
+              <span class="barra" style="--l:88%"></span>
+              <span class="barra" style="--l:72%"></span>
+              <span class="folha-espaco"></span>
+              <span class="barra barra--escura" style="--l:30%"></span>
+              <span class="barra" style="--l:80%"></span>
+              <span class="folha-assinatura"></span>
+            </div>
+            <div class="selo"><span class="selo-check" aria-hidden="true"></span><span>Aprovado</span></div>
+          </div>
+          <span class="rotulo">02 — Proposta</span>
+          <p class="manchete">Você recebe um plano claro, com prazo e valor combinados antes de começar.</p>
+        </article>
+        <article class="card">
+          <div class="mock" role="img" aria-label="Um site aberto num notebook e num celular">
+            <div class="notebook">
+              <div class="notebook-tela">
+                <div class="mini-site">
+                  <div class="mini-topo"><span class="mini-marca"><img src="assets/lince/lince-96.png" alt="" width="75" height="96" loading="lazy">Lincera</span><span class="mini-botao"></span></div>
+                  <div class="mini-corpo"><p class="mini-titulo">Vender <em>mais</em><br>sem complicar</p><span class="mini-fone"></span></div>
+                </div>
+              </div>
+              <div class="notebook-base"></div>
+            </div>
+            <div class="celular celular--pequeno">
+              <div class="celular-tela">
+                <div class="mini-site">
+                  <div class="mini-topo"><span class="mini-marca"><img src="assets/lince/lince-96.png" alt="" width="75" height="96" loading="lazy"></span><span class="mini-botao"></span></div>
+                  <div class="mini-corpo"><p class="mini-titulo">Vender<br><em>mais</em></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="rotulo">03 — Entrega e acompanhamento</span>
+          <p class="manchete">Tudo no ar, com acompanhamento depois da entrega para ajustar e evoluir.</p>
+        </article>
+      </div>
+      <div class="cards-acoes">
+        <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener"><span class="pilula">Quero conversar</span><span class="pilula" aria-hidden="true"><span>→</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Sobre: texto enviado em 2026-11-26, resumido. Campos [ ] ainda a preencher. -->
+  <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
+    <div class="wrap sobre-grade">
+      <div class="retrato">
+        <div class="retrato-quadro">
+          <picture>
+            <source type="image/webp" srcset="assets/foto/sobre-560.webp 560w, assets/foto/sobre-896.webp 896w" sizes="(max-width: 1000px) 90vw, 480px">
+            <img src="assets/foto/sobre-896.jpg" width="896" height="1120" loading="lazy" decoding="async" alt="Jackson de Souza Alves, da Lincera">
+          </picture>
+        </div>
+      </div>
+      <div class="sobre-texto">
+        <span class="rotulo">Sobre</span>
+        <h2 id="titulo-sobre" class="titulo">Quem faz a Lincera</h2>
+        <div class="sobre-nome">
+          <p class="manchete">Jackson de Souza Alves</p>
+          <span class="rotulo rotulo--laranja">À frente da Lincera</span>
+        </div>
+        <div class="corpo">
+          <p>Sou apaixonado por tecnologia e por soluções que fazem diferença no dia a dia das empresas. Acredito que, bem usada, ela simplifica processos, melhora a experiência dos clientes e abre oportunidades para negócios de todos os tamanhos.</p>
+          <p>Na Lincera, desenvolvo desde sites profissionais até agentes que atendem e respondem clientes automaticamente, unindo criatividade, estratégia e tecnologia em soluções práticas e acessíveis. Hoje me especializo em agentes de atendimento, automação de processos e integração de ferramentas digitais.</p>
+        </div>
+        <blockquote class="manchete">Meu objetivo é tornar a tecnologia acessível aos negócios, com soluções que trabalhem a favor das pessoas, economizem tempo e gerem valor de verdade.</blockquote>
+        <p class="apoio">Na Lincera, você fala direto comigo, da primeira conversa à entrega.</p>
+        <a class="seta" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener"><span class="pilula">Falar comigo no WhatsApp</span><span class="pilula" aria-hidden="true"><span>→</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Por que a Lincera -->
   <section class="secao" id="porque" aria-labelledby="titulo-porque">
-    <div class="porque-topo">
-      <h2 id="titulo-porque" class="titulo">Por que a Lincera</h2>
-      <p class="apoio">Somos um time enxuto, ágil e focado em quem toca o próprio negócio. Sem burocracia, sem linguagem difícil, com atenção a cada detalhe.</p>
-    </div>
-    <div class="porque-grade">
-      <div class="porque-item"><span class="rotulo">Linguagem simples</span><p class="manchete">Explicamos tudo sem termos complicados.</p></div>
-      <div class="porque-item"><span class="rotulo">Tudo em um só lugar</span><p class="manchete">Site, anúncios, atendimento e automação com a mesma equipe.</p></div>
-      <div class="porque-item"><span class="rotulo">Feito sob medida</span><p class="manchete">Cada projeto pensado para a realidade do seu negócio.</p></div>
-      <div class="porque-item"><span class="rotulo">Acompanhamento de perto</span><p class="manchete">Depois da entrega, seguimos junto com você.</p></div>
-    </div>
-  </section>
-
-  <!-- 8. Faixa — serviços em loop, sobre o fundo 3D (sem imagem própria) -->
-  <section class="faixa" aria-label="Serviços da Lincera">
-    <div class="faixa-linhas">
-      <div class="faixa-linha"><div class="trilho" style="--dur:90s"><span class="grupo"><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i></span></div></div>
-      <div class="faixa-linha" aria-hidden="true"><div class="trilho" style="--dur:75s"><span class="grupo" aria-hidden="true"><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i></span></div></div>
-      <div class="faixa-linha" aria-hidden="true"><div class="trilho" style="--dur:100s"><span class="grupo" aria-hidden="true"><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i></span></div></div>
-      <div class="faixa-linha" aria-hidden="true"><div class="trilho" style="--dur:85s"><span class="grupo" aria-hidden="true"><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i></span></div></div>
-      <div class="faixa-linha" aria-hidden="true"><div class="trilho" style="--dur:95s"><span class="grupo" aria-hidden="true"><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i></span></div></div>
-      <div class="faixa-linha" aria-hidden="true"><div class="trilho" style="--dur:80s"><span class="grupo" aria-hidden="true"><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i></span><span class="grupo" aria-hidden="true"><span>Aplicativos</span><i class="ponto"></i><span>Tráfego pago</span><i class="ponto"></i><span>Vídeos e artes</span><i class="ponto"></i><span>Automações</span><i class="ponto"></i><span>Atendimento automático</span><i class="ponto"></i><span>Sites</span><i class="ponto"></i></span></div></div>
+    <div class="wrap">
+      <div class="topo-secao">
+        <h2 id="titulo-porque" class="titulo">Por que a Lincera</h2>
+        <p class="apoio">Feita para quem toca o próprio negócio: sem burocracia, sem linguagem difícil e com atenção a cada detalhe.</p>
+      </div>
+      <div class="porque-grade">
+        <div class="porque-item"><span class="rotulo">Linguagem simples</span><p class="manchete">Tudo explicado sem termos complicados.</p></div>
+        <div class="porque-item"><span class="rotulo">Feito sob medida</span><p class="manchete">Cada projeto pensado para a realidade do seu negócio.</p></div>
+        <div class="porque-item"><span class="rotulo">Entrega rápida</span><p class="manchete">Projeto no ar sem enrolação.</p></div>
+        <div class="porque-item"><span class="rotulo">Acompanhamento de perto</span><p class="manchete">Depois da entrega, o acompanhamento continua.</p></div>
+      </div>
     </div>
   </section>
 
   <!-- 8. Perguntas frequentes -->
   <section class="secao" id="duvidas" aria-labelledby="titulo-duvidas">
-    <div class="duvidas-topo">
-      <h2 id="titulo-duvidas" class="titulo">Perguntas frequentes</h2>
-      <p class="apoio">Não achou o que procurava? <a href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Chame a gente no WhatsApp.</a></p>
-    </div>
-    <div class="perguntas">
-      <details class="pergunta">
-        <summary><span class="manchete">Quanto tempo leva para ficar pronto?</span><span class="mais" aria-hidden="true">+</span></summary>
-        <p class="resposta">Depende do projeto. Um site simples costuma ficar pronto em poucos dias; projetos maiores, como aplicativos, levam mais tempo. Na proposta você já recebe o prazo combinado.</p>
-      </details>
-      <details class="pergunta">
-        <summary><span class="manchete">Quanto custa?</span><span class="mais" aria-hidden="true">+</span></summary>
-        <p class="resposta">O valor depende do que o seu negócio precisa. Fazemos uma conversa rápida, entendemos o seu cenário e enviamos uma proposta clara, sem surpresas e sem compromisso.</p>
-      </details>
-      <details class="pergunta">
-        <summary><span class="manchete">Vocês dão suporte depois da entrega?</span><span class="mais" aria-hidden="true">+</span></summary>
-        <p class="resposta">Sim. Seguimos acompanhando o projeto depois de entregue, tirando dúvidas e fazendo ajustes. Você fala direto com a nossa equipe pelo WhatsApp.</p>
-      </details>
-      <details class="pergunta">
-        <summary><span class="manchete">Preciso entender de tecnologia?</span><span class="mais" aria-hidden="true">+</span></summary>
-        <p class="resposta">Não. A gente cuida de toda a parte técnica e explica tudo em linguagem simples. Você só conta o que precisa para o seu negócio.</p>
-      </details>
+    <div class="wrap duvidas-grade">
+      <div class="topo-secao">
+        <h2 id="titulo-duvidas" class="titulo">Perguntas frequentes</h2>
+        <p class="apoio">Não achou o que procurava? <a class="link" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Chame no WhatsApp.</a></p>
+      </div>
+      <div class="perguntas">
+        <details class="pergunta">
+          <summary><span class="manchete">Quanto tempo leva para ficar pronto?</span><span class="mais" aria-hidden="true">+</span></summary>
+          <p class="resposta">Depende do projeto. Um site simples costuma ficar pronto em poucos dias; projetos maiores, como aplicativos, levam mais tempo. Na proposta você já recebe o prazo combinado.</p>
+        </details>
+        <details class="pergunta">
+          <summary><span class="manchete">Quanto custa?</span><span class="mais" aria-hidden="true">+</span></summary>
+          <p class="resposta">O valor depende do que o seu negócio precisa. Depois de uma conversa rápida sobre o seu cenário, você recebe uma proposta clara, sem surpresas e sem compromisso.</p>
+        </details>
+        <details class="pergunta">
+          <summary><span class="manchete">Vocês dão suporte depois da entrega?</span><span class="mais" aria-hidden="true">+</span></summary>
+          <p class="resposta">Sim. O projeto continua acompanhado depois de entregue, com dúvidas respondidas e ajustes feitos. Você fala direto com quem fez o projeto, pelo WhatsApp.</p>
+        </details>
+        <details class="pergunta">
+          <summary><span class="manchete">Preciso entender de tecnologia?</span><span class="mais" aria-hidden="true">+</span></summary>
+          <p class="resposta">Não. A Lincera cuida de toda a parte técnica e explica tudo em linguagem simples. Você só conta o que precisa para o seu negócio.</p>
+        </details>
+      </div>
     </div>
   </section>
 
-  <!-- 10. Chamada final -->
+  <!-- 9. Chamada final + lince 3D -->
   <section class="secao chamada" id="contato" aria-labelledby="titulo-chamada">
-    <h2 id="titulo-chamada" class="titulo">Vamos tirar sua ideia do papel?</h2>
-    <p class="apoio">Chame a gente no WhatsApp e receba uma proposta sem compromisso.</p>
-    <a class="pilula pilula--principal pilula--grande" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <div class="wrap chamada-grade">
+      <div class="chamada-texto">
+        <h2 id="titulo-chamada" class="titulo">Vamos tirar sua ideia do papel?</h2>
+        <p class="apoio apoio--grande">Chame no WhatsApp e receba uma proposta sem compromisso.</p>
+        <a class="pilula pilula--principal pilula--grande" href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+      <div class="palco palco--lince" data-cena="lince" aria-hidden="true">
+        <div class="reserva"><img src="assets/lince/lince-192.png" alt="" width="150" height="192" loading="lazy"></div>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<!-- 11. Rodapé -->
+<!-- 10. Rodapé -->
 <footer class="rodape">
-  <div class="rodape-colunas">
-    <div class="rodape-col">
-      <span class="rotulo">Contato</span>
-      <ul>
-        <li><a href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">WhatsApp (48) 98813-6549</a></li>
-        <li><a href="https://www.instagram.com/lincera_oficial/" target="_blank" rel="noopener">Instagram @lincera_oficial</a></li>
-      </ul>
+  <div class="wrap">
+    <div class="rodape-colunas">
+      <div class="rodape-marca">
+        <span class="marca"><img src="assets/lince/lince-96.png" alt="" width="75" height="96" loading="lazy"><span>Lincera</span></span>
+        <p class="apoio">Atendimento automático no WhatsApp, sites, aplicativos, tráfego pago e automações para pequenos negócios.</p>
+      </div>
+      <div class="rodape-col">
+        <span class="rotulo">Contato</span>
+        <ul>
+          <li><a href="https://wa.me/5548988136549?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Lincera" target="_blank" rel="noopener">WhatsApp (48) 98813-6549</a></li>
+          <li><a href="https://www.instagram.com/lincera_oficial/" target="_blank" rel="noopener">Instagram @lincera_oficial</a></li>
+        </ul>
+      </div>
+      <div class="rodape-col">
+        <span class="rotulo">Navegação</span>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#projeto">Projeto</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="rodape-col">
-      <span class="rotulo">Navegação</span>
-      <ul>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="#duvidas">Dúvidas</a></li>
-      </ul>
+    <div class="rodape-linha">
+      <span>© 2026 Lincera Soluções Digitais. Todos os direitos reservados.</span>
+      <a class="link" href="#inicio">Voltar ao topo ↑</a>
     </div>
-  </div>
-  <div class="rodape-linha">
-    <span>© 2026 Lincera Soluções Digitais. Todos os direitos reservados.</span>
-    <span class="creditos">Imagens de fundo do Magnific: FundoTopo (kjpargeter), FundoMeio (pvproductions), FundoFinal (Gbob).</span>
   </div>
   <p class="nome-gigante" aria-hidden="true">Lincera</p>
 </footer>
 
 <script>
-  // Índice: item ativo pelo mouse ou, sem mouse em cima, pelo item mais perto do centro da tela
-  const lista = document.querySelector('.indice-lista');
-  const itens = [...lista.querySelectorAll('.item')];
-  let mouseNaLista = false;
-  function ativar(item) { itens.forEach((i) => i.classList.toggle('ativo', i === item)); }
-  function atualizarIndice() {
-    if (mouseNaLista) return;
-    const centro = innerHeight / 2;
-    let melhor = itens[0], menor = Infinity;
-    itens.forEach((i) => {
-      const r = i.getBoundingClientRect();
-      const d = Math.abs(r.top + r.height / 2 - centro);
-      if (d < menor) { menor = d; melhor = i; }
-    });
-    ativar(melhor);
-  }
-  itens.forEach((i) => i.addEventListener('mouseenter', () => { mouseNaLista = true; ativar(i); }));
-  lista.addEventListener('mouseleave', () => { mouseNaLista = false; atualizarIndice(); });
-
-  // Exemplo de atendimento: as mensagens aparecem uma a uma quando a conversa entra na tela.
-  // Celular: sem o "digitando", só a sequência. Menos movimento: a conversa já aparece completa e parada.
+  // Menu do celular
   (() => {
-    const conversa = document.querySelector('.conversa');
-    if (!conversa || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const leve = matchMedia('(max-width: 800px), (pointer: coarse)').matches;
-    const mensagens = [...conversa.querySelectorAll('.msg')];
-    const digitando = conversa.querySelector('.digitando');
-    const espera = (ms) => new Promise((r) => setTimeout(r, ms));
-    conversa.classList.add('animar');
-    const observador = new IntersectionObserver(async ([entrada]) => {
-      if (!entrada.isIntersecting) return;
-      observador.disconnect();
-      for (const m of mensagens) {
-        const doAtendimento = m.classList.contains('msg--atendimento');
-        if (doAtendimento && !leve) {
-          digitando.classList.add('ativo');
-          await espera(1200);
-          digitando.classList.remove('ativo');
-        } else {
-          await espera(leve ? 600 : 700);
-        }
-        m.classList.add('visivel');
-      }
-    }, { threshold: 0.4 });
-    observador.observe(conversa);
+    const botao = document.querySelector('.menu-botao');
+    const menu = document.getElementById('menu');
+    const alternar = (abrir) => {
+      botao.setAttribute('aria-expanded', String(abrir));
+      botao.textContent = abrir ? 'Fechar' : 'Menu';
+      menu.hidden = !abrir;
+      menu.classList.toggle('aberto', abrir);
+      document.body.style.overflow = abrir ? 'hidden' : '';
+    };
+    botao.addEventListener('click', () => alternar(botao.getAttribute('aria-expanded') !== 'true'));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) alternar(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { alternar(false); botao.focus(); } });
+    matchMedia('(min-width: 901px)').addEventListener('change', (e) => { if (e.matches) alternar(false); });
   })();
 
-  // Uma chamada laranja por tela (design.md §5): esconde o botão do cabeçalho enquanto o da chamada final aparece.
-  const botaoFinal = document.querySelector('.chamada .pilula--principal');
-  if (botaoFinal) {
-    new IntersectionObserver(([e]) => {
-      document.querySelector('.cabecalho').classList.toggle('chamada-visivel', e.isIntersecting);
-    }).observe(botaoFinal);
-  }
+  // Serviços: o item ativo troca o desenho e o texto da vitrine (mouse, teclado ou toque)
+  (() => {
+    const itens = [...document.querySelectorAll('.item')];
+    const vis = [...document.querySelectorAll('.vis')];
+    const texto = document.querySelector('[data-vitrine-texto]');
+    const ativar = (n) => {
+      itens.forEach((it, i) => { it.classList.toggle('ativo', i === n); it.setAttribute('aria-expanded', String(i === n)); });
+      vis.forEach((v, i) => v.classList.toggle('ativo', i === n));
+      texto.textContent = itens[n].querySelector('.desc').textContent;
+    };
+    itens.forEach((it, i) => {
+      it.addEventListener('mouseenter', () => ativar(i));
+      it.addEventListener('focus', () => ativar(i));
+      it.addEventListener('click', () => ativar(i));
+    });
+  })();
 
-  let agendado = false;
-  addEventListener('scroll', () => {
-    if (agendado) return;
-    agendado = true;
-    requestAnimationFrame(() => { atualizarIndice(); agendado = false; });
-  }, { passive: true });
-  addEventListener('resize', atualizarIndice);
-  atualizarIndice();
+  // Uma chamada laranja por tela (design.md §5): o botão do cabeçalho some
+  // enquanto outra chamada laranja da página está à vista.
+  (() => {
+    const doCabecalho = document.querySelectorAll('[data-some-com-chamada]');
+    const visiveis = new Set();
+    const obs = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => (e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)));
+      doCabecalho.forEach((el) => el.classList.toggle('escondido', visiveis.size > 0));
+    });
+    document.querySelectorAll('main .pilula--principal').forEach((b) => obs.observe(b));
+  })();
 </script>
-<script type="module" src="assets/js/fundo-3d.js"></script>
+<script type="module" src="assets/js/cenas-3d.js"></script>
 </body>
 </html>
